@@ -1,6 +1,7 @@
 package com.capgemini.molveno.restaurant;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class ReservationProposal {
@@ -20,7 +21,7 @@ public class ReservationProposal {
         checkValidity();
 
         if(validProposal){
-            //code om te checken of er plek is
+            //code om te checken of er plek is.
             return true;
         } else {
             return false;
@@ -28,7 +29,7 @@ public class ReservationProposal {
     }
 
     public void checkValidity(){
-        if(date.isBefore(LocalDate.now())){
+        if(numberOfAdults < 1 && time.atDate(date).isBefore(LocalDateTime.now())){
             System.out.println("Date is in the past");
             this.validProposal = false;
         } else {
