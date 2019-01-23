@@ -18,6 +18,7 @@ public class Submenu {
     }
     public boolean add(Consumable item) {
         consumableList.add(item);
+        return true;
 
     }
 

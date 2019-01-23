@@ -5,28 +5,28 @@ import java.util.List;
 
 public class Menu {
     private String name;
-    private List <Submenu> submenuList;
+    private List<Submenu> submenuList;
 
-    public Menu (String name) {
+    public Menu(String name) {
         submenuList = new ArrayList<Submenu>();
         this.name = name;
     }
 
-    public void show(){
+    public void show() {
 
     }
 
     public boolean add(Submenu item) {
-    submenuList.add(item);
+        submenuList.add(item);
+        return true;
     }
 
     public boolean remove(Submenu item) {
-        if (submenuList.contains(item))
-        {
+        if (submenuList.contains(item)) {
             submenuList.remove(item);
             return true;
-        }
-        else {
+        } else {
             return false;
+        }
     }
 }
