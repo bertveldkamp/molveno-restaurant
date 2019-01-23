@@ -21,7 +21,7 @@ public class ReservationProposal {
         checkValidity();
 
         if(validProposal){
-            //code om te checken of er plek is.
+            //code om te checken of er plek is
             return true;
         } else {
             return false;
