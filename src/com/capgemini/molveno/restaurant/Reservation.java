@@ -25,4 +25,40 @@ public Reservation(LocalDate datum,LocalTime time,int nrOfPeople,int nrOfChildre
         this.table = null; //mort gevuld worden vanuit TablePlanner
         this.reservationNumber = 1234;
         }
+
+    public Guest getGuest() {
+        return guest;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public LocalTime getTime() {
+        return time;
+    }
+
+    public LocalTime getEndReservation() {
+        return endReservation;
+    }
+
+    public int getNrOfPeople() {
+        return nrOfPeople;
+    }
+
+    public int getNrOfChildren() {
+        return nrOfChildren;
+    }
+
+    public boolean isGroupComplete() {
+        return groupComplete;
+    }
+
+    public int getReservationNumber() {
+        return reservationNumber;
+    }
+
+    public Table getTable() {
+        return table;
+    }
 }
