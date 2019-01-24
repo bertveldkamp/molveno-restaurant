@@ -28,16 +28,28 @@ public class ReservationProposal {
         }
     }
 
-    public void checkValidity(){
-        if(numberOfAdults < 1 && time.atDate(date).isBefore(LocalDateTime.now())){
+    void checkValidity(){
+        if(numberOfAdults < 1 || time.atDate(date).isBefore(LocalDateTime.now())){
             System.out.println("Date is in the past");
             this.validProposal = false;
         } else {
             this.validProposal = true;
         }
-
-
     }
 
+    void setDate(LocalDate date) {
+        this.date = date;
+    }
 
+    void setTime(LocalTime time) {
+        this.time = time;
+    }
+
+    void setNumberOfAdults(int numberOfAdults) {
+        this.numberOfAdults = numberOfAdults;
+    }
+
+    public boolean isValidProposal() {
+        return validProposal;
+    }
 }
