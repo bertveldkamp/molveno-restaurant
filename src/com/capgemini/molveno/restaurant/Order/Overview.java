@@ -42,13 +42,13 @@ public class Overview {
             return false;
         }
     }
-    public boolean mergeOrders(HashMap<Consumable, Integer>){
-
+    public boolean mergeOrders(HashMap<Consumable, Integer> test){
+        return true;
     }
     public boolean confirmOrder(){
-
+        return true;
     }
     public boolean payBill(){
-
+        return true;
     }
 }

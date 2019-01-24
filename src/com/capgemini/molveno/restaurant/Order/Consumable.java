@@ -1,11 +1,9 @@
 package com.capgemini.molveno.restaurant.Order;
 
-import java.text.NumberFormat;
-import java.util.Locale;
 import java.util.Objects;
 
 public class Consumable {
-    private double priceInYuan;
+    private double price;
     private String name;
     private String description;
     //   private NumberFormat priceFormat = NumberFormat.getCurrencyInstance(Locale.CHINA);
@@ -16,9 +14,9 @@ public class Consumable {
         this.description = "";
     }
 
-    public Consumable(String name, String description, double priceInYuan)
+    public Consumable(String name, String description, double price)
     {
-        this.priceInYuan = priceInYuan;
+        this.price = price;
         this.name = name;
         this.description = description;
     }
@@ -30,7 +28,7 @@ public class Consumable {
 
     @Override
     public String toString() {
-        return name + " " + priceInYuan + " " + description;
+        return name + " " + price + " " + description;
     }
 
     @Override
@@ -38,24 +36,24 @@ public class Consumable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Consumable that = (Consumable) o;
-        return Double.compare(that.priceInYuan, priceInYuan) == 0 &&
+        return Double.compare(that.price, price) == 0 &&
                 name.equals(that.name) &&
                 description.equals(that.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(priceInYuan, name, description);
+        return Objects.hash(price, name, description);
     }
 
     //Getters and Setters
 
     public double getPrice() {
-        return priceInYuan;
+        return price;
     }
 
     public void setPrice(double price) {
-        this.priceInYuan = price;
+        this.price = price;
     }
 
     public String getName() {

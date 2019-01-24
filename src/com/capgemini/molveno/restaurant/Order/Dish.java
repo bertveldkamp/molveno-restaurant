@@ -9,7 +9,7 @@ public class Dish extends  Consumable {
 
     public Dish()
     {
-        this.ingredientList = new ArrayList<MetaIngredient>();
+        this.ingredientList = new ArrayList<MetaIngredient>(0);
     }
 
     public Dish(String name, String description, double price, List<MetaIngredient> ingredientList) {
@@ -19,12 +19,12 @@ public class Dish extends  Consumable {
 
     public Dish(String name, String description, double price) {
         super(name, description, price);
-        this.ingredientList = new ArrayList<MetaIngredient>();
+        this.ingredientList = new ArrayList<MetaIngredient>(0);
     }
 
     public Dish(String name, double price) {
         super(name, "", price);
-        this.ingredientList = new ArrayList<MetaIngredient>();
+        this.ingredientList = new ArrayList<MetaIngredient>(0);
     }
 
     public boolean addIngredient(MetaIngredient ingredient)

@@ -17,11 +17,6 @@ public class Drink extends Consumable {
         this.volumeInMilliLiters = volumeInMilliLiters;
     }
 
-    public boolean isBottle()
-    {
-        return this.volumeInMilliLiters >= 500;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -34,5 +29,13 @@ public class Drink extends Consumable {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), volumeInMilliLiters);
+    }
+
+    public int getVolumeInMilliLiters() {
+        return volumeInMilliLiters;
+    }
+
+    public void setVolumeInMilliLiters(int volumeInMilliLiters) {
+        this.volumeInMilliLiters = volumeInMilliLiters;
     }
 }
