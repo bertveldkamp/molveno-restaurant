@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Bottle extends Drink {
 
-    Drink drink;
+    private Drink drink;
 
     Bottle(Drink drink,int bottleVolumeInMilliliters, double bottlePrice)
     {
