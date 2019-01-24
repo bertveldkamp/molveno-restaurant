@@ -4,61 +4,25 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Reservation {
-    private LocalDate datum;
-    private LocalTime tijd;
+
+    private Guest guest;
+    private LocalDate date;
+    private LocalTime time;
+    private LocalTime endReservation;
     private int nrOfPeople;
     private int nrOfChildren;
     private boolean groupComplete = false;
     private int reservationNumber;
+    private Table table;
 
-
-    public Reservation(LocalDate datum, LocalTime tijd, int nrOfPeople , int nrOfChildren)
-    {
-        this.datum = datum;
-        this.tijd = tijd;
-        this.nrOfPeople = nrOfPeople;
-        this.nrOfChildren = nrOfChildren;
-
-        //resnr aanmaken
-        int reserveringsnummer = 1234;
-
-        //resernr vastleggen
-        this.reservationNumber = reserveringsnummer;
-
-    }
+public Reservation(LocalDate datum,LocalTime time,int nrOfPeople,int nrOfChildren)
+        {
+        this.date=datum;
+        this.time=time;
+        this.nrOfPeople=nrOfPeople;
+        this.nrOfChildren=nrOfChildren;
+        this.endReservation=time.plusHours(2);
+        this.table = null; //mort gevuld worden vanuit TablePlanner
+        this.reservationNumber = 1234;
+        }
 }
-{
-    Public
-        }  =  LocalDateTime.now
-    LocalDateTime.now =< LocalDateTime
-
-
-Public static boolean NrofAdults is Numeric
-Public static boolean NrofChildren is Numeric
-
-constructor
-
-Public static void NrofAdults{}{
-    System.out.println('' please fill in the number of Adults'')
-
-Public static void NrofChildren{}{}
-        System.out.println('' please fill in the number of Children'')
-
-Public Reservarion (int LocalDateTime, int LocalTime, int NrofAdults, int NrofChildren )
-* // Check in database of tijdstip t/m + 2 uur beschikbaar is)
-
-
-
-
-
-If(Reservation =){
-System.out.println("Available")
-}
-
-Else
-        {system.out.println("not available; try another option")
-}
-}
-
-
-Void Available  {Would you like to confirm}
