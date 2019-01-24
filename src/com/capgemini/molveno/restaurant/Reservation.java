@@ -1,28 +1,35 @@
-import.java.time.LocalDate;
-import
-
-import java.time.LocalDateTime;
-import java.time.LocalTime;.java.time.LocaldateTime;
-
 package com.capgemini.molveno.restaurant;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class Reservation {
-    Private LocalDateTime;
-    Private LocalTime;
-    Private int nrofAdults;
-    private int nrofChildren;
+    private LocalDate datum;
+    private LocalTime tijd;
+    private int nrOfPeople;
+    private int nrOfChildren;
+    private boolean groupComplete = false;
+    private int reservationNumber;
 
-Public Reservation (){
-}
 
-Public LocalDateTime () {
-return
-}
+    public Reservation(LocalDate datum, LocalTime tijd, int nrOfPeople , int nrOfChildren)
+    {
+        this.datum = datum;
+        this.tijd = tijd;
+        this.nrOfPeople = nrOfPeople;
+        this.nrOfChildren = nrOfChildren;
+
+        //resnr aanmaken
+        int reserveringsnummer = 1234;
+
+        //resernr vastleggen
+        this.reservationNumber = reserveringsnummer;
+
+    }
 }
 {
     Public
-        } class Reservation
-    created =  LocalDateTime.now
+        }  =  LocalDateTime.now
     LocalDateTime.now =< LocalDateTime
 
 
