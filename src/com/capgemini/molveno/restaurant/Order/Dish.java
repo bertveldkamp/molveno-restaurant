@@ -32,7 +32,7 @@ public class Dish extends  Consumable {
         return ingredientList.add(ingredient);
     }
 
-    public boolean removeIngreident(MetaIngredient ingredient)
+    public boolean removeIngredient(MetaIngredient ingredient)
     {
         return ingredientList.remove(ingredient);
     }

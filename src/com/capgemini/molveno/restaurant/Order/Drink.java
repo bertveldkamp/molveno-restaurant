@@ -3,25 +3,23 @@ package com.capgemini.molveno.restaurant.Order;
 import java.util.Objects;
 
 public class Drink extends Consumable {
-    private int volume;
+    private int volumeInMilliLiters;
 
-    public Drink(String name,int volume, double price)
+    public Drink(String name, int volumeInMilliLiters, double price)
     {
-        setName(name);
-        this.volume = volume;
-        setPrice(price);
+        super(name,"",price);
+        this.volumeInMilliLiters = volumeInMilliLiters;
     }
 
-    public Drink(String name,int volume, String description, double price)
+    public Drink(String name, int volumeInMilliLiters, String description, double price)
     {
-        setName(name);
-        this.volume = volume;
-        setPrice(price);
+        super(name,description,price);
+        this.volumeInMilliLiters = volumeInMilliLiters;
     }
 
     public boolean isBottle()
     {
-        return this.volume >= 0.5;
+        return this.volumeInMilliLiters >= 500;
     }
 
     @Override
@@ -30,11 +28,11 @@ public class Drink extends Consumable {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Drink drink = (Drink) o;
-        return volume == drink.volume && (drink.getName() == this.getName());
+        return volumeInMilliLiters == drink.volumeInMilliLiters && ((drink.getName().equals(this.getName())) && (drink.getDescription().equals(this.getDescription()) && drink.getPrice() == this.getPrice()));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), volume);
+        return Objects.hash(super.hashCode(), volumeInMilliLiters);
     }
 }
