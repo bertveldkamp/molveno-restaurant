@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Reservation {
-}
+
     private Guest guest;
     private LocalDate date;
     private LocalTime time;
@@ -13,7 +13,7 @@ public class Reservation {
     private int nrOfChildren;
     private boolean groupComplete = false;
     private int reservationNumber;
-    Private int table;
+    private Table table;
 
 public Reservation(LocalDate datum,LocalTime time,int nrOfPeople,int nrOfChildren)
         {
@@ -21,30 +21,8 @@ public Reservation(LocalDate datum,LocalTime time,int nrOfPeople,int nrOfChildre
         this.time=time;
         this.nrOfPeople=nrOfPeople;
         this.nrOfChildren=nrOfChildren;
-
-        endReservation=time.plusHours(2);
-
-        // tafelnummer aanmaken
-    int Table  = 12;
-
-        // tafelnummer vastleggen
-        this.Table = Tablenumber;
-
-        //resnr aanmaken
-        int Reserveringsnummer=1234;
-
-        //resnr vastleggen
-        this.reservationNumber=Reserveringsnummer;
-
-        */// constructor guest en reservation number
-
-        Public}
-
-class Guestreservation {
-}
-    private Guest Guest;
-private Reserveringsnummer
-private endReservation
-
-
+        this.endReservation=time.plusHours(2);
+        this.table = null; //mort gevuld worden vanuit TablePlanner
+        this.reservationNumber = 1234;
         }
+}
