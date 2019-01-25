@@ -21,13 +21,6 @@ public class ReservationProposalTest {
     }
 
     @Test
-    public void checkAvailable() {
-        //Given
-        //When
-        //Then
-    }
-
-    @Test
     public void checkValidityTrue() {
         //Given
         date = LocalDate.of(2019, 6, 12);

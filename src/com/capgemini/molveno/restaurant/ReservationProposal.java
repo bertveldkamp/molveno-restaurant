@@ -12,44 +12,49 @@ public class ReservationProposal {
     private int numberOfChildren;
     private boolean validProposal = false;
 
-    public boolean checkAvailable(LocalDate date, LocalTime time, int numberOfAdults, int numberOfChildren){
-        this.date = date;
-        this.time = time;
-        this.numberOfAdults = numberOfAdults;
-        this.numberOfChildren = numberOfChildren;
-
-        checkValidity();
-
-        if(validProposal){
-            //code om te checken of er plek is
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    void checkValidity(){
+    public boolean checkValidity(){
         if(numberOfAdults < 1 || time.atDate(date).isBefore(LocalDateTime.now())){
             System.out.println("Date is in the past");
             this.validProposal = false;
         } else {
             this.validProposal = true;
         }
+        return validProposal;
     }
 
-    void setDate(LocalDate date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    void setTime(LocalTime time) {
+    public void setTime(LocalTime time) {
         this.time = time;
     }
 
-    void setNumberOfAdults(int numberOfAdults) {
+    public void setNumberOfAdults(int numberOfAdults) {
         this.numberOfAdults = numberOfAdults;
+    }
+
+    public void setNumberOfChildren(int numberOfChildren){
+        this.numberOfChildren = numberOfChildren;
     }
 
     public boolean isValidProposal() {
         return validProposal;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public LocalTime getTime() {
+        return time;
+    }
+
+    public int getNumberOfAdults() {
+        return numberOfAdults;
+    }
+
+    public int getNumberOfChildren() {
+        return numberOfChildren;
     }
 }
