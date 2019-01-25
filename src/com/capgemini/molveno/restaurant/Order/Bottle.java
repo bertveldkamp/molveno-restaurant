@@ -6,7 +6,7 @@ public class Bottle extends Drink {
 
     private Drink drink;
 
-    Bottle(Drink drink,int bottleVolumeInMilliliters, double bottlePrice)
+    public Bottle(Drink drink,int bottleVolumeInMilliliters, double bottlePrice)
     {
         super(drink.getName(),bottleVolumeInMilliliters,bottlePrice);
         this.drink = drink;
