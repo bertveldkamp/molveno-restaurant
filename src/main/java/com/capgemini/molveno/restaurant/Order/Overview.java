@@ -12,76 +12,54 @@ public class Overview {
     }
 
     public void printOverview(){
-        try {
-            overviewMap.forEach((k, v) -> System.out.println("key: " + k + " value:" + v));
-        }
-        catch(NullPointerException e){
-            System.out.println(e.getMessage());
-        }
+        //TODO Remove once front end has been made.
+        overviewMap.forEach((k, v) -> System.out.println("key: " + k + " value:" + v));
     }
 
     public HashMap<Consumable, Integer> getOverviewMap() {
         return this.overviewMap;
     }
+
     public double getPrice(){
         return this.price;
     }
 
-    public void addToOrder(Consumable item){
+    public void addToOrder(Consumable item, int quantity) throws NullPointerException{
         int amount = 0;
         if(overviewMap.containsKey(item)){
             amount = overviewMap.get(item);
         }
-        overviewMap.put(item, amount +1);
-    }
-    private void addToOrder(Consumable item, int quantity){
-        for(int i = 1; i <= quantity; i++) {
-            addToOrder(item);
-        }
+        price += item.getPrice();
+        overviewMap.put(item, amount + quantity);
     }
 
-    public boolean removeFromOrder(Consumable item){
-        try {
-            if (overviewMap.containsKey(item)) {
-                int amount = overviewMap.get(item);
-                if (amount > 1) {
-                    overviewMap.put(item, amount - 1);
-                    return true;
-                } else if (amount == 1) {
-                    overviewMap.remove(item);
-                    return true;
-                } else {
-                    overviewMap.remove(item);
-                    return false;
-                }
+    public boolean removeFromOrder(Consumable item) throws NullPointerException{
+        if (overviewMap.containsKey(item)) {
+            int amount = overviewMap.get(item);
+            if (amount > 1) {
+                overviewMap.put(item, amount - 1);
+                price -= item.getPrice();
+                return true;
+            } else if (amount == 1) {
+                overviewMap.remove(item);
+                price -= item.getPrice();
+                return true;
             } else {
+                overviewMap.remove(item);
+                this.price = 0;
+                overviewMap.forEach((key, value) -> calculatePricePerItem(key, value));
                 return false;
             }
-        }
-        catch (NullPointerException e){
+        } else {
             return false;
         }
     }
-
-    private boolean removeFromOrder(Consumable item, Integer quantity) {
-        boolean returnValue = false;
-        for(int i = 1; i <= quantity; i++) {
-            returnValue = removeFromOrder(item);
-            if(!returnValue) {
-                return returnValue;
-            }
-        }
-        return returnValue;
+    private void calculatePricePerItem(Consumable item, int amount){
+        this.price += amount * item.getPrice();
     }
 
-    private boolean mergeOrders(Overview order){
-
-        try {
-            order.getOverviewMap().forEach(this::addToOrder);
-        }
-        catch (NullPointerException e){
-            return false;
-        }
+    public boolean mergeOrders(Overview order) throws NullPointerException{
+        order.getOverviewMap().forEach(this::addToOrder);
         this.price += order.getPrice();
         return true;
 
@@ -91,12 +69,8 @@ public class Overview {
         //TODO Send to Kitchen Front End
         //TODO Send to Bar Front End
         boolean success = orderOverview.mergeOrders(this);
-        try {
-            this.overviewMap.forEach(this::removeFromOrder);
-        }
-        catch (NullPointerException e){
-            return false;
-        }
+        overviewMap.clear();
+
         return success;
     }
 

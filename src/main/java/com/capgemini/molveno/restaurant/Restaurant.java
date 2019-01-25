@@ -11,10 +11,10 @@ public class Restaurant {
         Overview order = new Overview();
         Drink cola = new Drink("Cola", 250, 2.00);
         Dish pasta = new Dish("Pasta", "Pasta", 2.00);
-        order.addToOrder(cola);
+        order.addToOrder(cola, 1);
         System.out.println("---Order--");
         order.printOverview();
-        overview.addToOrder(pasta);
+        overview.addToOrder(pasta, 1);
         System.out.println("\n---Overview--");
         overview.printOverview();
         System.out.println(order.confirmOrder(overview));
