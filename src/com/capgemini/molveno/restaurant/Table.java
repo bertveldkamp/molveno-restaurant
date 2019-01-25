@@ -9,9 +9,9 @@ public class Table {
     final TableType  type;
 
 
-    public Table (int id, int number, TableType type) {
+    public Table (int id, TableType type) {
         this.tableId = id;
-        this.numberOfSeats = number;
+        this.numberOfSeats = type.getValue();
         this.type = type;
 
     }
