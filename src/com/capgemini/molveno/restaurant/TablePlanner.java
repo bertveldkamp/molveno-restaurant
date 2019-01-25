@@ -29,7 +29,7 @@ public class TablePlanner {
             return true;
             } else {
             return false;
-        }
+        } 
     }
 
     public boolean isBetween(int x, int lower, int upper){
