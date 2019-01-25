@@ -59,6 +59,8 @@ public class TablePlanner {
         for (Table table: availableTables(reservationProposal)) {
             seats = seats + table.type.getValue();
         }
+
+        return seats;
     }
 
 

@@ -22,7 +22,7 @@ public Reservation(LocalDate datum,LocalTime time,int nrOfPeople,int nrOfChildre
         this.nrOfPeople=nrOfPeople;
         this.nrOfChildren=nrOfChildren;
         this.endReservation=time.plusHours(2);
-        this.table = null; //mort gevuld worden vanuit TablePlanner
+        this.table = null; //moet gevuld worden vanuit TablePlanner
         this.reservationNumber = 1234;
         }
 
