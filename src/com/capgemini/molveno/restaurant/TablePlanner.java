@@ -29,11 +29,7 @@ public class TablePlanner {
             return true;
             } else {
             return false;
-        } 
-    }
-
-    public boolean isBetween(int x, int lower, int upper){
-        return lower <= x && x <= upper;
+        }
     }
 
     List<Table> availableTables(ReservationProposal reservationProposal){
@@ -48,6 +44,8 @@ public class TablePlanner {
 
             if (proposalTime.isAfter(begin) && proposalTime.isBefore(end)){
                 availableTables.remove(reservation.getTable());
+            } else if(proposalTime.plusHours(2).isAfter(begin) && proposalTime.plusHours(2).isBefore(end)){
+                availableTables.remove(reservation.getTable());
             }
         }
         return availableTables;
@@ -59,6 +57,7 @@ public class TablePlanner {
         for (Table table: availableTables(reservationProposal)) {
             seats = seats + table.type.getValue();
         }
+        return seats;
     }
 
 
@@ -68,5 +67,9 @@ public class TablePlanner {
 
     public void addToReservationList(Reservation reservation){
         reservationList.add(reservation);
+    }
+
+    public boolean isBetween(int x, int lower, int upper){
+        return lower <= x && x <= upper;
     }
 }
