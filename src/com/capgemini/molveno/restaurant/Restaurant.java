@@ -12,7 +12,7 @@ public class Restaurant {
         Submenu startersSubMenu = new Submenu("Starters");
         Dish tomatoSoup = new Dish("Tomato Soup","Tomato soup from Italy",20);
         tomatoSoup.addIngredient(new MetaIngredient(4, MetaIngredient.UnitOfMeasurement.KILOGRAM,new Ingredient("Tomato","ACME Italy")));
-        tomatoSoup.addIngredient(new MetaIngredient(10, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Oregano","ACME Italy")));
+        tomatoSoup.addIngredient(new MetaIngredient(10, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Bassilicum","ACME Italy")));
 
         startersSubMenu.add(tomatoSoup);
         foodMenu.add(startersSubMenu);
