@@ -35,11 +35,11 @@ public class Restaurant {
 
         Overview overview = new Overview();
 
-        overview.addToOrder(tomatoSoup);
-        overview.addToOrder(cola);
+        overview.addToOrder(tomatoSoup,1);
+        overview.addToOrder(cola,1);
         overview.getPrice();
-        overview.addToOrder(merlotBottle);
-        overview.addToOrder(merlot);
+        overview.addToOrder(merlotBottle,1);
+        overview.addToOrder(merlot,1);
         overview.getPrice();
 
         overview.printOverview();
