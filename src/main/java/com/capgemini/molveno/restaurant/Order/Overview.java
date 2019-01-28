@@ -7,7 +7,7 @@ public class Overview {
     private double price;
 
     public Overview(){
-        overviewMap = new HashMap<>();
+        overviewMap = new HashMap<>(0);
         this.price = 0;
     }
 
@@ -24,7 +24,7 @@ public class Overview {
         return this.price;
     }
 
-    public void addToOrder(Consumable item, int quantity) throws NullPointerException{
+    public void addToOrder(Consumable item, int quantity) {
         int amount = 0;
         if(overviewMap.containsKey(item)){
             amount = overviewMap.get(item);
@@ -33,7 +33,7 @@ public class Overview {
         overviewMap.put(item, amount + quantity);
     }
 
-    public boolean removeFromOrder(Consumable item) throws NullPointerException{
+    public boolean removeFromOrder(Consumable item) {
         if (overviewMap.containsKey(item)) {
             int amount = overviewMap.get(item);
             if (amount > 1) {
@@ -47,7 +47,7 @@ public class Overview {
             } else {
                 overviewMap.remove(item);
                 this.price = 0;
-                overviewMap.forEach((key, value) -> calculatePricePerItem(key, value));
+                overviewMap.forEach(this::calculatePricePerItem);
                 return false;
             }
         } else {
@@ -58,7 +58,7 @@ public class Overview {
         this.price += amount * item.getPrice();
     }
 
-    public boolean mergeOrders(Overview order) throws NullPointerException{
+    public boolean mergeOrders(Overview order) {
         order.getOverviewMap().forEach(this::addToOrder);
         this.price += order.getPrice();
         return true;

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class OverviewTest {
-    Overview overview;
+    private Overview overview;
 
     @Before
     public void before(){
@@ -99,22 +99,10 @@ public class OverviewTest {
     }
 
     @Test
-    public void removeNonExcistingItem(){
+    public void removeNonExistingItem(){
         Drink testItem1 = new Drink("Test1", 250, 2.00);
         HashMap<Consumable, Integer> testHashMap = overview.getOverviewMap();
         Assert.assertFalse(hashMapContainsConsumable(testHashMap, testItem1));
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void addNullThrowNullPointer(){
-        Drink testItem1 = null;
-        overview.addToOrder(testItem1, 1);
-    }
-
-    @Test
-    public void removeNullAndHandleException(){
-        Drink testItem1 = null;
-        Assert.assertFalse(overview.removeFromOrder(testItem1));
     }
 
     @Test
