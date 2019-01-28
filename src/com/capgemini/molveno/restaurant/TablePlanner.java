@@ -9,12 +9,17 @@ public class TablePlanner {
 
     private static final TablePlanner tablePlanner = new TablePlanner();
 
-    private List<Table> tableList;
-    private List<Reservation> reservationList;
+    private final List<Table> tableList;
+    private final List<Reservation> reservationList;
 
     private TablePlanner(){
+        this.tableList = new ArrayList<>();
+        this.reservationList = new ArrayList<>();
     }
 
+    /**
+     * Singleton pattern
+     */
     public static TablePlanner getInstance(){
         return tablePlanner;
     }
@@ -41,6 +46,7 @@ public class TablePlanner {
 
             LocalDateTime end = reservation.getEndReservation().atDate(reservation.getDate());
             LocalDateTime begin = reservation.getTime().atDate(reservation.getDate());
+
 
             if (proposalTime.isAfter(begin) && proposalTime.isBefore(end)){
                 availableTables.remove(reservation.getTable());
