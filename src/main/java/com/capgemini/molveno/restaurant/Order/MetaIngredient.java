@@ -9,14 +9,14 @@ public class MetaIngredient {
         AMOUNT,
     }
 
-    private Ingredient ingredient;
     private int quantity;
     private UnitOfMeasurement unit;
+    private Ingredient ingredient;
 
-    public MetaIngredient(Ingredient ingredient, int quantity, UnitOfMeasurement unit) {
-        this.ingredient = ingredient;
+    public MetaIngredient(int quantity, UnitOfMeasurement unit,Ingredient ingredient) {
         this.quantity = quantity;
         this.unit = unit;
+        this.ingredient = ingredient;
     }
 
     @Override

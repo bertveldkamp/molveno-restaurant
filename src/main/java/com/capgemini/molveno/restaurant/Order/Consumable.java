@@ -6,10 +6,10 @@ public class Consumable {
     private double price;
     private String name;
     private String description;
+    //   private NumberFormat priceFormat = NumberFormat.getCurrencyInstance(Locale.CHINA);
 
     public Consumable()
     {
-        this.price = 0;
         this.name = "";
         this.description = "";
     }
@@ -28,7 +28,7 @@ public class Consumable {
 
     @Override
     public String toString() {
-        return name + " ￥" + price + ", " + description;
+        return name + " " + price + " " + description;
     }
 
     @Override

@@ -21,12 +21,15 @@ public class Menu {
         return true;
     }
 
-    public boolean remove(Submenu item) {
-        if (submenuList.contains(item)) {
+    public boolean remove(Submenu item)
+    {
+        if (submenuList.contains(item))
+        {
             submenuList.remove(item);
             return true;
-        } else {
+        } else
+            {
             return false;
-        }
+            }
     }
 }
