@@ -8,7 +8,7 @@ public class Submenu {
     private List <Consumable> consumableList;
 
     public Submenu (String name) {
-        consumableList = new ArrayList<Consumable>();
+        consumableList = new ArrayList<>();
         this.name = name;
     }
 
