@@ -7,29 +7,34 @@ public class Menu {
     private String name;
     private List<Submenu> submenuList;
 
-    public Menu(String name) {
+    public Menu(String name)
+    {
         submenuList = new ArrayList<>();
         this.name = name;
     }
 
-    public void show() {
+    public void show()
+    {    }
 
-    }
-
-    public boolean add(Submenu item) {
-        submenuList.add(item);
-        return true;
+    public boolean add(Submenu item)
+    {
+        return submenuList.add(item);
     }
 
     public boolean remove(Submenu item)
     {
-        if (submenuList.contains(item))
+        return submenuList.remove(item);
+
+    }
+    
+    public String toString()
+    {
+        String str = "";
+        for (Submenu item : this.submenuList)
         {
-            submenuList.remove(item);
-            return true;
-        } else
-            {
-            return false;
-            }
+            str += item.toString() + "\n";
+        }
+        return str;
     }
 }
+

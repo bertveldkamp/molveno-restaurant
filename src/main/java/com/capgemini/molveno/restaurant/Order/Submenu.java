@@ -16,21 +16,23 @@ public class Submenu {
     public void show() {
 
     }
-    public boolean add(Consumable item) {
-        consumableList.add(item);
-        return true;
-
+    public boolean add(Consumable item)
+    {
+        return consumableList.add(item);
     }
 
     public boolean remove(Consumable item)
     {
-        if (consumableList.contains(item))
+     return consumableList.remove(item);
+        }
+
+    public String toString()
+    {
+        String str = "" ;
+        for (Consumable item: this.consumableList)
         {
-            consumableList.remove(item);
-            return true;
+            str += item.toString() + "\n";
         }
-        else {
-            return false;
-        }
+        return str;
     }
 }
