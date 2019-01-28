@@ -29,7 +29,7 @@ public class Overview {
         if(overviewMap.containsKey(item)){
             amount = overviewMap.get(item);
         }
-        price += item.getPrice() * quantity;
+        price += item.getPrice();
         overviewMap.put(item, amount + quantity);
     }
 
