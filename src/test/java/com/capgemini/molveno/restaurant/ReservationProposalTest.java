@@ -1,5 +1,6 @@
 package com.capgemini.molveno.restaurant;
 
+import com.capgemini.molveno.restaurant.ReservationProposal;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
