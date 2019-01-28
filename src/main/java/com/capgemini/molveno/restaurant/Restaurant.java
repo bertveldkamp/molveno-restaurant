@@ -1,7 +1,10 @@
 package com.capgemini.molveno.restaurant;
 
 import com.capgemini.molveno.restaurant.Order.*;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
 public class Restaurant {
     public static void main(String[] args)
     {
@@ -12,7 +15,7 @@ public class Restaurant {
         Submenu startersSubMenu = new Submenu("Starters");
         Dish tomatoSoup = new Dish("Tomato Soup","Tomato soup from Italy",20);
         tomatoSoup.addIngredient(new MetaIngredient(4, MetaIngredient.UnitOfMeasurement.KILOGRAM,new Ingredient("Tomato","ACME Italy")));
-        tomatoSoup.addIngredient(new MetaIngredient(10, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Oregano","ACME Italy")));
+        tomatoSoup.addIngredient(new MetaIngredient(10, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Bassilicum","ACME Italy")));
 
         startersSubMenu.add(tomatoSoup);
         foodMenu.add(startersSubMenu);
@@ -35,14 +38,15 @@ public class Restaurant {
 
         Overview overview = new Overview();
 
-        overview.addToOrder(tomatoSoup);
-        overview.addToOrder(cola);
+        overview.addToOrder(tomatoSoup,1);
+        overview.addToOrder(cola,1);
         overview.getPrice();
-        overview.addToOrder(merlotBottle);
-        overview.addToOrder(merlot);
+        overview.addToOrder(merlotBottle,1);
+        overview.addToOrder(merlot,1);
         overview.getPrice();
 
         overview.printOverview();
         overview.payBill();
+        SpringApplication.run(Restaurant.class, args);
     }
 }

@@ -10,7 +10,12 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="molveno-restaurant" target="8" />
+      <module name="molveno-restaurant" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="molveno-restaurant" options="-parameters" />
+    </option>
   </component>
 </project>
