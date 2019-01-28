@@ -8,7 +8,7 @@ public class Menu {
     private List<Submenu> submenuList;
 
     public Menu(String name) {
-        submenuList = new ArrayList<Submenu>();
+        submenuList = new ArrayList<>();
         this.name = name;
     }
 
