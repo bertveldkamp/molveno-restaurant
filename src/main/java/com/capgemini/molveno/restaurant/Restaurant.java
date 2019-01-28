@@ -1,7 +1,10 @@
 package com.capgemini.molveno.restaurant;
 
 import com.capgemini.molveno.restaurant.Order.*;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
 public class Restaurant {
     public static void main(String[] args)
     {
@@ -44,5 +47,6 @@ public class Restaurant {
 
         overview.printOverview();
         overview.payBill();
+        SpringApplication.run(Restaurant.class, args);
     }
 }
