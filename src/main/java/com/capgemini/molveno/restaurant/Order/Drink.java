@@ -5,15 +5,32 @@ import java.util.Objects;
 public class Drink extends Consumable {
     private int volumeInMilliLiters;
 
+    //Needed for Spring MVC
+    private Drink()
+    {
+        super();
+    }
+
+    public Drink(String name, int volumeInMilliLiters, double price, String course)
+    {
+        super(name,"",price, course);
+        this.volumeInMilliLiters = volumeInMilliLiters;
+    }
     public Drink(String name, int volumeInMilliLiters, double price)
     {
-        super(name,"",price);
+        super(name,"",price, "");
+        this.volumeInMilliLiters = volumeInMilliLiters;
+    }
+
+    public Drink(String name, int volumeInMilliLiters, String description, double price, String course)
+    {
+        super(name,description,price, course );
         this.volumeInMilliLiters = volumeInMilliLiters;
     }
 
     public Drink(String name, int volumeInMilliLiters, String description, double price)
     {
-        super(name,description,price);
+        super(name,description,price, "" );
         this.volumeInMilliLiters = volumeInMilliLiters;
     }
 

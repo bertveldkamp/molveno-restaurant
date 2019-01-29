@@ -5,36 +5,50 @@ import java.util.List;
 
 public class Menu {
     private String name;
-    private List<Submenu> submenuList;
+    private List<Consumable> consumableList;
 
-    public Menu(String name)
-    {
-        submenuList = new ArrayList<>();
+    public Menu(String name) {
+        consumableList = new ArrayList<Consumable>();
         this.name = name;
     }
 
-    public void show()
-    {    }
-
-    public boolean add(Submenu item)
-    {
-        return submenuList.add(item);
+    public boolean add(Consumable item) {
+        return consumableList.add(item);
     }
 
-    public boolean remove(Submenu item)
+    public boolean remove(Consumable item)
     {
-        return submenuList.remove(item);
-
+        return consumableList.remove(item);
     }
 
-    public String toString()
+    public List<Consumable> getAllItems()
     {
-        String str = "";
-        for (Submenu item : this.submenuList)
+        //TODO consider making a copy
+        return consumableList;
+    }
+
+    public List<Consumable> getCourse(String course)
+    {
+        List<Consumable> courseConsumables = new ArrayList<>();
+        for(Consumable consumable: this.consumableList)
         {
-            str += item.toString() + "\n";
+            if(consumable.getCourse().equals(course))
+            {
+                courseConsumables.add(consumable);
+            }
         }
-        return str;
+        return courseConsumables;
+    }
+
+    public Consumable getConsumable(String consumableName) throws ConsumableNotFoundException
+    {
+        for(int i  = 0; i < consumableList.size(); ++i)
+        {
+            if(consumableList.get(i).getName().equals(consumableName))
+            {
+                return consumableList.get(i);
+            }
+        }
+        throw new ConsumableNotFoundException(consumableName,this.name);
     }
 }
-

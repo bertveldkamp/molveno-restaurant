@@ -11,7 +11,7 @@ public class BottleTest {
     public void equalsTest() {
         Drink wine = new Drink("red red wine",150,"Red wine from Agartha, 2008BC", 200);
         Drink wine2 = new Drink("red red wine",150,"Red wine from Agartha, 2008BC", 200);
-        Drink coke = new Drink("Cola",200,400);
+        Drink coke = new Drink("Cola",200,400,"Soft Drinks");
 
         Bottle wineBottle = new Bottle(wine,750,2000);
         Bottle wineBottle2 = new Bottle(wine,750,2000);

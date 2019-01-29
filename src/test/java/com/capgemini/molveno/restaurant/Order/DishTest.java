@@ -16,7 +16,7 @@ public class DishTest {
         MetaIngredient macaroni = new MetaIngredient(125, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Macaroni","ACME Italy"));
         MetaIngredient cheese = new MetaIngredient(150, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Cheese","ACME USA"));
 
-        Dish macNCheese = new Dish("Mac 'n Cheese","Macaroni with cheese",800,new ArrayList<MetaIngredient>(0));
+        Dish macNCheese = new Dish("Mac 'n Cheese","Macaroni with cheese",800,new ArrayList<MetaIngredient>(0),"Main Course");
         macNCheese.addIngredient(macaroni);
         macNCheese.addIngredient(cheese);
 
@@ -33,7 +33,7 @@ public class DishTest {
         MetaIngredient macaroni = new MetaIngredient(125, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Macaroni","ACME Italy"));
         MetaIngredient cheese = new MetaIngredient(150, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Cheese","ACME USA"));
 
-        Dish macNCheese = new Dish("Mac 'n Cheese","Macaroni with cheese",800,new ArrayList<MetaIngredient>(0));
+        Dish macNCheese = new Dish("Mac 'n Cheese","Macaroni with cheese",800,new ArrayList<MetaIngredient>(0),"Main Course");
         macNCheese.addIngredient(macaroni);
         macNCheese.addIngredient(cheese);
 
@@ -52,8 +52,8 @@ public class DishTest {
         MetaIngredient cheese = new MetaIngredient(150, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Cheese","ACME USA"));
 
         Dish nothing = new Dish();
-        Dish applePie = new Dish("Apple Pie",400);
-        Dish macNCheese = new Dish("Mac 'n Cheese","Macaroni with cheese",800,new ArrayList<MetaIngredient>(0));
+        Dish applePie = new Dish("Apple Pie",400,"Dessert");
+        Dish macNCheese = new Dish("Mac 'n Cheese","Macaroni with cheese",800,new ArrayList<MetaIngredient>(0),"Main Course");
         macNCheese.addIngredient(macaroni);
         macNCheese.addIngredient(cheese);
 
@@ -78,11 +78,11 @@ public class DishTest {
         MetaIngredient macaroni = new MetaIngredient(125, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Macaroni","ACME Italy"));
         MetaIngredient cheese = new MetaIngredient(150, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Cheese","ACME USA"));
 
-        Dish macNCheese = new Dish("Mac 'n Cheese","Macaroni with cheese",800,new ArrayList<MetaIngredient>(0));
+        Dish macNCheese = new Dish("Mac 'n Cheese","Macaroni with cheese",800,new ArrayList<MetaIngredient>(0),"Main Course");
         macNCheese.addIngredient(macaroni);
         macNCheese.addIngredient(cheese);
 
-        Dish macNCheese2 = new Dish("Mac 'n Cheese","Macaroni with cheese",800,new ArrayList<MetaIngredient>(0));
+        Dish macNCheese2 = new Dish("Mac 'n Cheese","Macaroni with cheese",800,new ArrayList<MetaIngredient>(0),"Main Course");
         macNCheese2.addIngredient(macaroni);
         macNCheese2.addIngredient(cheese);
 
@@ -99,11 +99,11 @@ public class DishTest {
         MetaIngredient macaroni = new MetaIngredient(125, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Macaroni","ACME Italy"));
         MetaIngredient cheese = new MetaIngredient(150, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Cheese","ACME USA"));
 
-        Dish macNCheese = new Dish("Mac 'n Cheese","Macaroni with cheese",800,new ArrayList<MetaIngredient>(0));
+        Dish macNCheese = new Dish("Mac 'n Cheese","Macaroni with cheese",800,new ArrayList<MetaIngredient>(0),"Main Course");
         macNCheese.addIngredient(macaroni);
         macNCheese.addIngredient(cheese);
 
-        Dish macNCheese2 = new Dish("Mac 'n Cheese","Macaroni with cheese",800,new ArrayList<MetaIngredient>(0));
+        Dish macNCheese2 = new Dish("Mac 'n Cheese","Macaroni with cheese",800,new ArrayList<MetaIngredient>(0),"Main Course");
         macNCheese2.addIngredient(macaroni);
         macNCheese2.addIngredient(cheese);
 

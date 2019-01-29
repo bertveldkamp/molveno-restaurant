@@ -12,27 +12,12 @@ public class Submenu {
         this.name = name;
     }
 
-
-    public void show() {
-
-    }
-    public boolean add(Consumable item)
-    {
+    public boolean add(Consumable item) {
         return consumableList.add(item);
     }
 
     public boolean remove(Consumable item)
     {
-     return consumableList.remove(item);
-        }
-
-    public String toString()
-    {
-        String str = "" ;
-        for (Consumable item: this.consumableList)
-        {
-            str += item.toString() + "\n";
-        }
-        return str;
+       return consumableList.remove(item);
     }
 }
