@@ -6,12 +6,15 @@ public class Consumable {
     private double price;
     private String name;
     private String description;
+    private String course;
+
     //   private NumberFormat priceFormat = NumberFormat.getCurrencyInstance(Locale.CHINA);
 
     public Consumable()
     {
         this.name = "";
         this.description = "";
+        this.course = "";
     }
 
     public Consumable(String name, String description, double price)
@@ -19,6 +22,15 @@ public class Consumable {
         this.price = price;
         this.name = name;
         this.description = description;
+        this.course = "";
+    }
+
+    public Consumable(String name, String description, double price, String course)
+    {
+        this.price = price;
+        this.name = name;
+        this.description = description;
+        this.course = course;
     }
 
     private void show()
@@ -70,5 +82,13 @@ public class Consumable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
     }
 }

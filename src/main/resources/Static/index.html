@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Page Title</title>
+    <title>MY SUPER AWESOME WEB PAGE :D :D :D</title>
 </head>
-<body>
 
+<body>
+<marquee direction="down" scrollamount="7" behavior="alternate" height="20%">
+<marquee scrollamount="10" behavior="alternate" bgcolor="#FF00BB">  <img src="https://i.skyrock.net/7625/42647625/pics/1718490116_3.gif">
+</marquee>
+</marquee>
+
+<form action="#" action="@{/add}" object="${drink}" method="post">
+    <p>Name: <input type="text" field="*{name}" /></p>
+    <p>Description: <input type="text" field="*{description}" /></p>
+    <p>Volume in ML: <input type="number" field="*{volumeInMilliLiters}" /></p>
+    <p>Price: <input type="number" field="*{price}" /></p>
+    <p><input type="submit" value="Add Drink to Menu" /> <input type="reset" value="Reset" /></p>
+</form>
 </body>
+
 </html>

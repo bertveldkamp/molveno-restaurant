@@ -12,18 +12,23 @@ public class Dish extends  Consumable {
         this.ingredientList = new ArrayList<MetaIngredient>(0);
     }
 
-    public Dish(String name, String description, double price, List<MetaIngredient> ingredientList) {
-        super(name, description, price);
+    public Dish(String name, String description, double price, List<MetaIngredient> ingredientList, String course) {
+        super(name, description, price, course );
         this.ingredientList = ingredientList;
     }
 
-    public Dish(String name, String description, double price) {
-        super(name, description, price);
+    public Dish(String name, String description, double price, String course) {
+        super(name, description, price, course );
         this.ingredientList = new ArrayList<MetaIngredient>(0);
     }
 
-    public Dish(String name, double price) {
-        super(name, "", price);
+    public Dish(String name, String description, double price) {
+        super(name, description, price, "" );
+        this.ingredientList = new ArrayList<MetaIngredient>(0);
+    }
+
+    public Dish(String name, double price, String course) {
+        super(name, "", price, course );
         this.ingredientList = new ArrayList<MetaIngredient>(0);
     }
 

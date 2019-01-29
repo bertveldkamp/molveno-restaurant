@@ -3,8 +3,6 @@ package com.capgemini.molveno.restaurant.Order;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class ConsumableTest {
 
     @Test
@@ -20,12 +18,12 @@ public class ConsumableTest {
 
     @Test
     public void equalsTest() {
-        Consumable stroopwafel = new Consumable("Stroopwafel","A refreshing treat from the Netherlands.",190);
-        Consumable anotherstroopwafel = new Consumable("Stroopwafel","A refreshing treat from the Netherlands.",190);
-        Consumable expensiveStroopwafel = new Consumable("Stroopwafel","A refreshing treat from the Netherlands.",400);
-        Consumable typoStroopwafel = new Consumable("Stropwafel","A refreshing treat from the Netherlands.",190);
-        Consumable germanStroopwafel = new Consumable("Stroopwafel","A refreshing treat from Germany.",190);
-        Consumable applePie = new Consumable("Apple Pie","A delicious warm pie made from apples, seasoned with cinnamon and raisins.",400);
+        Consumable stroopwafel = new Consumable("Stroopwafel","A refreshing treat from the Netherlands.",190 );
+        Consumable anotherstroopwafel = new Consumable("Stroopwafel","A refreshing treat from the Netherlands.",190 );
+        Consumable expensiveStroopwafel = new Consumable("Stroopwafel","A refreshing treat from the Netherlands.",400 );
+        Consumable typoStroopwafel = new Consumable("Stropwafel","A refreshing treat from the Netherlands.",190 );
+        Consumable germanStroopwafel = new Consumable("Stroopwafel","A refreshing treat from Germany.",190 );
+        Consumable applePie = new Consumable("Apple Pie","A delicious warm pie made from apples, seasoned with cinnamon and raisins.",400 );
         Consumable nothing = new Consumable();
 
         Assert.assertTrue(stroopwafel.equals(stroopwafel));
@@ -41,8 +39,8 @@ public class ConsumableTest {
 
     @Test
     public void hashCodeTest() {
-        Consumable stroopwafel = new Consumable("Stroopwafel","A refreshing treat from the Netherlands.",190);
-        Consumable anotherstroopwafel = new Consumable("Stroopwafel","A refreshing treat from the Netherlands.",190);
+        Consumable stroopwafel = new Consumable("Stroopwafel","A refreshing treat from the Netherlands.",190 );
+        Consumable anotherstroopwafel = new Consumable("Stroopwafel","A refreshing treat from the Netherlands.",190 );
 
 
         Assert.assertEquals(stroopwafel.hashCode(),anotherstroopwafel.hashCode());
