@@ -1,6 +1,7 @@
 package com.capgemini.molveno.restaurant;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class Reservation {
@@ -15,19 +16,17 @@ public class Reservation {
     private int reservationNumber;
     private Table table;
 
-public Reservation(LocalDate datum,LocalTime time,int nrOfPeople,int nrOfChildren)
-        {
-        this.date=datum;
+
+    public Reservation(LocalDate datum,LocalTime time,int nrOfPeople,int nrOfChildren)
+
+    public Guest getGuest() {
+        return guest;this.date=datum;
         this.time=time;
         this.nrOfPeople=nrOfPeople;
         this.nrOfChildren=nrOfChildren;
         this.endReservation=time.plusHours(2);
         this.table = null; //moet gevuld worden vanuit TablePlanner
         this.reservationNumber = 1234;
-        }
-
-    public Guest getGuest() {
-        return guest;
     }
 
     public LocalDate getDate() {
@@ -61,4 +60,13 @@ public Reservation(LocalDate datum,LocalTime time,int nrOfPeople,int nrOfChildre
     public Table getTable() {
         return table;
     }
+
+    public LocalDateTime getBeginTime() {
+        return time.atDate(date); }
+
+    public LocalDateTime getEndTime() {
+        return endReservation.atDate(date); }
 }
+
+
+
