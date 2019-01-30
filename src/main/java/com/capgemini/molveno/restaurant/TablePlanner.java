@@ -14,7 +14,7 @@ public class TablePlanner {
     private final List<Table> tableList;
     private final List<Reservation> reservationList;
 
-    private TablePlanner(){
+    public TablePlanner(){
         this.tableList = new ArrayList<>();
         this.reservationList = new ArrayList<>();
     }
