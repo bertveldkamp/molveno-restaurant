@@ -1,6 +1,10 @@
 <html>
 <head>
     <title>MY SUPER AWESOME WEB PAGE :D :D :D</title>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="js/addDish.js"></script>
+    <script type="text/javascript" src="js/removeDish.js"></script>
+    <script type="text/javascript" src="js/loadMenu.js"></script>
 </head>
 
 <body>
@@ -9,13 +13,14 @@
 </marquee>
 </marquee>
 
-<form action="#" action="@{/add}" object="${drink}" method="post">
-    <p>Name: <input type="text" field="*{name}" /></p>
-    <p>Description: <input type="text" field="*{description}" /></p>
-    <p>Volume in ML: <input type="number" field="*{volumeInMilliLiters}" /></p>
-    <p>Price: <input type="number" field="*{price}" /></p>
-    <p><input type="submit" value="Add Drink to Menu" /> <input type="reset" value="Reset" /></p>
-</form>
+Name: <input id="name" type="text" title="Name:"><br>
+Description: <input id="description" type="text" title="Description:"><br>
+Price: <input id="price" type="number" min="0" title="Price:"><br>
+Course: <input id="course" type="text" title="Course:" value="Side Dish"><br>
+<button onclick="javascript: addDish()">voeg kaasstengels toe WANT KAASSTENGELS <3</button>
+<button onclick="javascript: removeDish()">Delete them Dishes :(</button>
+<div id="menu">Click the button to load the Menu!</div>
+<button onclick="javascript: loadMenu()">Load the Menu</button>
 </body>
 
 </html>
