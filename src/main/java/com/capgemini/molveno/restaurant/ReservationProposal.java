@@ -7,13 +7,14 @@ import java.time.LocalTime;
 public class ReservationProposal {
 
     private LocalDate date;
-    private LocalTime time;
+    private LocalTime beginTime;
+    private LocalTime endTime;
     private int numberOfAdults;
     private int numberOfChildren;
     private boolean validProposal = false;
 
     public boolean checkValidity(){
-        if(numberOfAdults < 1 || time.atDate(date).isBefore(LocalDateTime.now())){
+        if(numberOfAdults < 1 || beginTime.atDate(date).isBefore(LocalDateTime.now())){
             System.out.println("Date is in the past");
             this.validProposal = false;
         } else {
@@ -22,39 +23,23 @@ public class ReservationProposal {
         return validProposal;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
+    public void setDate(LocalDate date) { this.date = date; }
 
-    public void setTime(LocalTime time) {
-        this.time = time;
-    }
+    public void setBeginTime(LocalTime beginTime) { this.beginTime = beginTime; this.endTime = beginTime.plusHours(2); }
 
-    public void setNumberOfAdults(int numberOfAdults) {
-        this.numberOfAdults = numberOfAdults;
-    }
-
-    public void setNumberOfChildren(int numberOfChildren){
-        this.numberOfChildren = numberOfChildren;
-    }
+    public void setNumberOfAdults(int numberOfAdults) { this.numberOfAdults = numberOfAdults; }
 
     public boolean isValidProposal() {
         return validProposal;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDateTime getBeginTime() {
+        return beginTime.atDate(date);
     }
 
-    public LocalTime getTime() {
-        return time;
+    public LocalDateTime getEndTime() {
+        return endTime.atDate(date);
     }
 
-    public int getNumberOfAdults() {
-        return numberOfAdults;
-    }
-
-    public int getNumberOfChildren() {
-        return numberOfChildren;
-    }
+    public int getNumberOfPeople() { return numberOfAdults + numberOfChildren; }
 }
