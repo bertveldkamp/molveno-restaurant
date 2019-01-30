@@ -1,71 +1,23 @@
-package com.capgemini.molveno.restaurant;
-
-import com.capgemini.molveno.restaurant.ReservationProposal;
-import com.capgemini.molveno.restaurant.TablePlanner;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
-
-import java.time.LocalDateTime;
+package com.capgemini.molveno.restaurant.Order;
 
 import static org.junit.Assert.*;
 
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-
 public class TablePlannerTest {
 
-    TablePlanner tablePlanner;
-    ReservationProposal reservationProposal;
+    /*
+    Ahmmed! svp voor de checkAvailable functie in TablePlanner voor de volgende testsituaties testcases maken:
+    - ReservationProposal is niet valide dus de functie returns false
+    - Er zijn meer mensen dan plekken aan onbezette tafels dus de functie returns false
+    - Er zijn geen onbezette tafels meer dus de functie returns false
+    - Voldoende plekken voor de groep
 
-
-    @Before
-    public void initialize() {
-        tablePlanner = new TablePlanner();
-
-    }
-
-    @Test
-    public void checkAvailableWithInvalidReservation() {
-        //Given
-        reservationProposal = new ReservationProposal();
-        reservationProposal.setNumberOfAdults(0);
-        reservationProposal.setDate(LocalDate.now());
-        reservationProposal.setTime(LocalTime.now());
-
-
-        //When
-
-
-        //Then
-        Assert.assertFalse(tablePlanner.checkAvailable(reservationProposal));
-
-    }
-
-@Test
-    public void checkMoreNumberOfAdults(){
-        //Given
-    tablePlanner = new TablePlanner();
-    reservationProposal.setNumberOfAdults(8);
-    reservationProposal.setNumberOfChildren(7);
-    int availalbleSeats = 12;
-    table = new Table(4);
-
-
-    //when
-
-
-    //Then
-    Assert.assertFalse(tablePlanner.availableSeats(tablePlanner));
-
-
-
-
+    Tips:
+    - zorg dat je per test een Given, When, Then structuur gebruikt (uitgangssituatie, actie, verwacht resultaat)
+    - in de uitgangssituatie kun je objecten creëren om bepaalde condities tot stand te brengen
+      (denk aan reserveringen, tafels, en proposals voor reserveringen)
+    - resultaten checken met Assert commando's
+    - als je vaak dezelfde acties uit moet voeren voor je beginsituatie kun je misschien gebruik maken van een
+      aparte @Begin functie (die wordt voor elke @Test functie herhaald)
+     */
 
 }
-
-
-    }

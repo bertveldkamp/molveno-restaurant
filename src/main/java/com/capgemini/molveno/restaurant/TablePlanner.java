@@ -1,10 +1,12 @@
 package com.capgemini.molveno.restaurant;
 
+import org.springframework.util.Assert;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-//Singleton Tabelplanner
+//Singleton Tableplanner
 public class TablePlanner {
 
     private static final TablePlanner tablePlanner = new TablePlanner();
@@ -24,22 +26,30 @@ public class TablePlanner {
         return tablePlanner;
     }
 
-    public boolean checkAvailable(ReservationProposal reservationProposal){
 
-        int numberOfPeople = reservationProposal.getNumberOfAdults() + reservationProposal.getNumberOfChildren();
+    public boolean checkAvailable(ReservationProposal reservationProposal) throws InvalidProposalException{
 
-        if (reservationProposal.checkValidity()
-                && !availableTables(reservationProposal).isEmpty()
-                && numberOfPeople <= availableSeats(reservationProposal)){
-            return true;
-            } else {
-            return false;
+        if (!reservationProposal.checkValidity())
+        {
+            InvalidProposalException invalidProposalException = new InvalidProposalException();
+            throw invalidProposalException;
         }
+
+        int numberOfPeople = reservationProposal.getNumberOfPeople();
+
+        return !availableTables(reservationProposal).isEmpty() && numberOfPeople <= availableSeats(reservationProposal);
+
+    }
+
+    public void processReservation(ReservationProposal reservationProposal, Guest guest) throws InvalidProposalException{
+        Assert.isTrue(checkAvailable(reservationProposal), "komt al niet door de checkAvailable");
+
     }
 
     List<Table> availableTables(ReservationProposal reservationProposal){
         List<Table> availableTables = tableList;
-        LocalDateTime proposalTime = reservationProposal.getTime().atDate(reservationProposal.getDate());
+        LocalDateTime proposalBeginTime = reservationProposal.getBeginTime();
+        LocalDateTime proposalEndTime = reservationProposal.getEndTime();
 
         //Loop fills available table List
         for (Reservation reservation: reservationList) {
@@ -48,9 +58,7 @@ public class TablePlanner {
             LocalDateTime begin = reservation.getTime().atDate(reservation.getDate());
 
 
-            if (proposalTime.isAfter(begin) && proposalTime.isBefore(end)){
-                availableTables.remove(reservation.getTable());
-            } else if(proposalTime.plusHours(2).isAfter(begin) && proposalTime.plusHours(2).isBefore(end)){
+            if (dateIsBetween(proposalBeginTime, begin, end) || dateIsBetween(proposalEndTime, begin, end)){
                 availableTables.remove(reservation.getTable());
             }
         }
@@ -75,7 +83,11 @@ public class TablePlanner {
         reservationList.add(reservation);
     }
 
-    public boolean isBetween(int x, int lower, int upper){
+    public boolean intIsBetween(int x, int lower, int upper){
         return lower <= x && x <= upper;
+    }
+
+    private boolean dateIsBetween(LocalDateTime x, LocalDateTime begin, LocalDateTime end){
+        return begin.isBefore(x) && x.isBefore(end);
     }
 }
