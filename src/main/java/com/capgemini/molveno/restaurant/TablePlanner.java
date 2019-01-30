@@ -14,7 +14,7 @@ public class TablePlanner {
     private final List<Table> tableList;
     private final List<Reservation> reservationList;
 
-    public TablePlanner(){
+    private TablePlanner(){
         this.tableList = new ArrayList<>();
         this.reservationList = new ArrayList<>();
     }
@@ -43,6 +43,19 @@ public class TablePlanner {
 
     public void processReservation(ReservationProposal reservationProposal, Guest guest) throws InvalidProposalException{
         Assert.isTrue(checkAvailable(reservationProposal), "komt al niet door de checkAvailable");
+        //Stukje voor Guest input checken
+        //TODO
+
+        //tafel toewijzen
+        int numberOfPeople = reservationProposal.getNumberOfPeople();
+        Table reservedTable;
+        if (intIsBetween(numberOfPeople,1,4)){
+            reservedTable = firstMatchingTable(availableTables(reservationProposal), TableType.SquareTable);
+
+
+
+        Reservation reservation = new Reservation(reservationProposal, guest);
+        }
 
     }
 
@@ -63,6 +76,15 @@ public class TablePlanner {
             }
         }
         return availableTables;
+    }
+
+    Table firstMatchingTable(List<Table> tableList, TableType tableType){
+        for (Table table: tableList) {
+            if (table.type == tableType){
+                return table;
+            }
+        }
+        return null;
     }
 
     int availableSeats(ReservationProposal reservationProposal){
