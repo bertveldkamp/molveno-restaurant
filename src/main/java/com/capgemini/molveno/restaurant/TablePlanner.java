@@ -1,5 +1,7 @@
 package com.capgemini.molveno.restaurant;
 
+import org.springframework.util.Assert;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +38,11 @@ public class TablePlanner {
         int numberOfPeople = reservationProposal.getNumberOfPeople();
 
         return !availableTables(reservationProposal).isEmpty() && numberOfPeople <= availableSeats(reservationProposal);
+
+    }
+
+    public void processReservation(ReservationProposal reservationProposal, Guest guest) throws InvalidProposalException{
+        Assert.isTrue(checkAvailable(reservationProposal), "komt al niet door de checkAvailable");
 
     }
 
