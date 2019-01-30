@@ -1,6 +1,5 @@
 package com.capgemini.molveno.restaurant;
 
-import com.capgemini.molveno.restaurant.ReservationProposal;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,7 +28,7 @@ public class ReservationProposalTest {
         numberOfAdults = 4;
 
         reservationProposal.setDate(date);
-        reservationProposal.setTime(time);
+        reservationProposal.setBeginTime(time);
         reservationProposal.setNumberOfAdults(numberOfAdults);
 
         //When
@@ -47,7 +46,7 @@ public class ReservationProposalTest {
         numberOfAdults = 4;
 
         reservationProposal.setDate(date);
-        reservationProposal.setTime(time);
+        reservationProposal.setBeginTime(time);
         reservationProposal.setNumberOfAdults(numberOfAdults);
 
         //When
@@ -65,7 +64,7 @@ public class ReservationProposalTest {
         numberOfAdults = 0;
 
         reservationProposal.setDate(date);
-        reservationProposal.setTime(time);
+        reservationProposal.setBeginTime(time);
         reservationProposal.setNumberOfAdults(numberOfAdults);
 
         //When
