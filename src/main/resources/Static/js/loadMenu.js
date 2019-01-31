@@ -2,7 +2,7 @@ function loadMenu()
 {
 $.ajax({
 type:"GET",
-url:"/menu",
+url:"/api/menu/menu",
 success:function(data)
 {
 var html = "<table><tr><td>Name</td><td>description</td><td>price</td></tr>"

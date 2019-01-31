@@ -5,6 +5,7 @@
     <script type="text/javascript" src="js/addDish.js"></script>
     <script type="text/javascript" src="js/removeDish.js"></script>
     <script type="text/javascript" src="js/loadMenu.js"></script>
+    <script type="text/javascript" src="js/ingredientsDynamicInput.js"></script>
 </head>
 
 <body>
@@ -13,14 +14,30 @@
 </marquee>
 </marquee>
 
-Name: <input id="name" type="text" title="Name:"><br>
-Description: <input id="description" type="text" title="Description:"><br>
-Price: <input id="price" type="number" min="0" title="Price:"><br>
+
+Name: <input id="name" type="text" value="Kaasstengel" title="Name:"><br>
+Description: <input id="description" type="text" value="KAAASSTENGELS ZIJN LEUK!" title="Description:"><br>
+Price: <input id="price" type="number" min="0" value="3" title="Price:"><br>
 Course: <input id="course" type="text" title="Course:" value="Side Dish"><br>
+<div id="metaIngredients">
+<input id="ingredientQuantity1" type="number" value="150" min="0" placeholder="0" size="3">
+<select id="ingredientUnit1">
+    <option value="GRAM"> Gram </option>
+    <option value="KILOGRAM"> KiloGram </option>
+    <option value="AMOUNT"> pieces of </option>
+</select>
+<input id="ingredientName1" type="text" value="kaas" placeholder="Ingredient name">
+<input id="ingredientSupplier1" placeholder="Ingredient supplier" value="ACME Benelux" type="text">
+</div>
+<button onclick="javascript: addIngredientField()"> add another ingredient </button>
+<br>
 <button onclick="javascript: addDish()">voeg kaasstengels toe WANT KAASSTENGELS <3</button>
 <button onclick="javascript: removeDish()">Delete them Dishes :(</button>
 <div id="menu">Click the button to load the Menu!</div>
 <button onclick="javascript: loadMenu()">Load the Menu</button>
+
+
+<div id="hierkandejson"></div>
 </body>
 
 </html>
