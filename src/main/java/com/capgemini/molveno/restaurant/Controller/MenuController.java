@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/menu")
 public class MenuController {
 
     Menu menu;
@@ -19,14 +20,13 @@ public class MenuController {
     private void init()
     {
         menu = new Menu("menu");
-        order = new Overview();
 
         menu.add(new Drink("Cola",200,4,"Soft Drinks"));
         Dish tomatoSoup = new Dish("Tomato Soup","Tomato soup from Italy",20,"Starter");
         tomatoSoup.addIngredient(new MetaIngredient(4, MetaIngredient.UnitOfMeasurement.KILOGRAM,new Ingredient("Tomato","ACME Italy")));
         tomatoSoup.addIngredient(new MetaIngredient(10, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Bassilicum","ACME Italy")));
         menu.add(tomatoSoup);
-        order.addToOrder(tomatoSoup,1);
+
     }
 
     @PostMapping("/addDish")
@@ -35,29 +35,20 @@ public class MenuController {
         menu.add(dish);
     }
 
+    @PostMapping("/removeConsumable")
+    public void removeConsumable(@RequestBody String dish)
+    {
+        menu.remove(menu.getConsumable(dish));
+    }
+
     @PostMapping("/removeDish")
     public void removeDish(@RequestBody Dish dish)
     {
         menu.remove(dish);
     }
 
-    @PostMapping("/addToOrder")
-    public void addToOrder(@RequestParam String consumableName, @RequestParam int amount)
-    {
-       order.addToOrder(menu.getConsumable(consumableName),amount);
-    }
+    //TODO addDrink, addBottle
 
-    @PostMapping("/removeFromOrder")
-    public void removeFromOrder(@RequestParam String consumableName)
-    {
-        order.removeFromOrder(menu.getConsumable(consumableName));
-    }
-
-    @GetMapping("/overview")
-    public HashMap<Consumable, Integer> getOverview()
-    {
-        return order.getOverviewMap();
-    }
 
     @GetMapping("/menu")
     public List<Consumable> getMenu()
