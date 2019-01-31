@@ -1,7 +1,7 @@
 function removeDish(){
 $.ajax({
     type: "POST",
-    url: "/removeDish",
+    url: "/api/menu/removeDish",
     contentType: 'application/json',
     data: JSON.stringify({
     "name": (document).getElementById("name").value,
