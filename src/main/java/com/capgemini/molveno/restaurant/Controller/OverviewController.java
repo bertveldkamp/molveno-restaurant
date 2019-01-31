@@ -1,24 +1,29 @@
 package com.capgemini.molveno.restaurant.Controller;
 
 import com.capgemini.molveno.restaurant.Order.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
+@RequestMapping("/api/overview")
 public class OverviewController {
 
-    Menu menu;
+    Overview totalOverview;
     Overview order;
+
+    Menu menu;
 
     @PostConstruct
     private void init()
     {
-        menu = new Menu("menu");
+        totalOverview = new Overview();
         order = new Overview();
-
+        menu = new Menu("test");
         menu.add(new Drink("Cola",200,4,"Soft Drinks"));
         Dish tomatoSoup = new Dish("Tomato Soup","Tomato soup from Italy",20,"Starter");
         tomatoSoup.addIngredient(new MetaIngredient(4, MetaIngredient.UnitOfMeasurement.KILOGRAM,new Ingredient("Tomato","ACME Italy")));
@@ -27,16 +32,9 @@ public class OverviewController {
         order.addToOrder(tomatoSoup,1);
     }
 
-    @PostMapping("/addDish")
-    public void addDish(@RequestBody Dish dish)
-    {
-        menu.add(dish);
-    }
-
-    @PostMapping("/removeDish")
-    public void removeDish(@RequestBody Dish dish)
-    {
-        menu.remove(dish);
+    @RequestMapping("/")
+    public String welcome(Map<String, Object> model) {
+        return "overview.hml";
     }
 
     @PostMapping("/addToOrder")
@@ -57,10 +55,10 @@ public class OverviewController {
         return order.getOverviewMap();
     }
 
-    @GetMapping("/menu")
-    public List<Consumable> getMenu()
+    @PostMapping("/payOrder")
+    public void payOrder(@RequestParam String consumableName)
     {
-        return menu.getAllItems();
+        totalOverview.mergeOrders(order);
     }
 
 
