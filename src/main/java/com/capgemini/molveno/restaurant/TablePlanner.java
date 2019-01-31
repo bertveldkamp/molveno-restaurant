@@ -49,12 +49,13 @@ public class TablePlanner {
         //tafel toewijzen
         int numberOfPeople = reservationProposal.getNumberOfPeople();
         Table reservedTable;
-        if (intIsBetween(numberOfPeople,1,4)){
+        if (intIsBetween(numberOfPeople,1,4)) {
             reservedTable = firstMatchingTable(availableTables(reservationProposal), TableType.SquareTable);
-
-
-
-        Reservation reservation = new Reservation(reservationProposal, guest);
+            Reservation reservation = new Reservation(reservationProposal, guest, reservedTable);
+        }
+        if (intIsBetween(numberOfPeople,8,12)){
+            reservedTable = firstMatchingTable(availableTables(reservationProposal), TableType.RoundTable);
+            Reservation reservation = new Reservation(reservationProposal, guest, reservedTable);
         }
 
     }
@@ -67,8 +68,8 @@ public class TablePlanner {
         //Loop fills available table List
         for (Reservation reservation: reservationList) {
 
-            LocalDateTime end = reservation.getEndReservation().atDate(reservation.getDate());
-            LocalDateTime begin = reservation.getTime().atDate(reservation.getDate());
+            LocalDateTime end = reservation.getEndDateTime();
+            LocalDateTime begin = reservation.getBeginDateTime();
 
 
             if (dateIsBetween(proposalBeginTime, begin, end) || dateIsBetween(proposalEndTime, begin, end)){

@@ -7,9 +7,8 @@ import java.time.LocalTime;
 public class Reservation {
 
     private Guest guest;
-    private LocalDate date;
-    private LocalTime time;
-    private LocalTime endReservation;
+    private LocalDateTime beginDateTime;
+    private LocalDateTime endDateTime;
     private int nrOfPeople;
     private int nrOfChildren;
     private boolean groupComplete = false;
@@ -17,57 +16,27 @@ public class Reservation {
     private Table table;
 
 
-    public Reservation(LocalDate datum,LocalTime time,int nrOfPeople,int nrOfChildren){
-        this.date=datum;
-        this.time=time;
-        this.nrOfPeople=nrOfPeople;
-        this.nrOfChildren=nrOfChildren;
-        this.endReservation=time.plusHours(2);
-        this.table = null; //moet gevuld worden vanuit TablePlanner
+    public Reservation(ReservationProposal reservationProposal, Guest guest, Table table){
+        this.beginDateTime = reservationProposal.getBeginTime();
+        this.endDateTime = this.beginDateTime.plusHours(2);
+        this.nrOfPeople = reservationProposal.getNumberOfPeople();
+        this.nrOfChildren = reservationProposal.getNumberOfChildren();
         this.reservationNumber = 1234;
-    }
-
-    public Guest getGuest() {
-        return guest;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public LocalTime getEndReservation() {
-        return endReservation;
-    }
-
-    public int getNrOfPeople() {
-        return nrOfPeople;
-    }
-
-    public int getNrOfChildren() {
-        return nrOfChildren;
-    }
-
-    public boolean isGroupComplete() {
-        return groupComplete;
-    }
-
-    public int getReservationNumber() {
-        return reservationNumber;
+        this.guest = guest;
+        this.table = table;
     }
 
     public Table getTable() {
         return table;
     }
 
-    public LocalDateTime getBeginTime() {
-        return time.atDate(date); }
+    public LocalDateTime getBeginDateTime() {
+        return beginDateTime;
+    }
 
-    public LocalDateTime getEndTime() {
-        return endReservation.atDate(date); }
+    public LocalDateTime getEndDateTime() {
+        return endDateTime;
+    }
 }
 
 

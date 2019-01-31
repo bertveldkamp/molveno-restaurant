@@ -42,4 +42,6 @@ public class ReservationProposal {
     }
 
     public int getNumberOfPeople() { return numberOfAdults + numberOfChildren; }
+
+    public int getNumberOfChildren() { return numberOfChildren; }
 }
