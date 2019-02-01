@@ -1,4 +1,4 @@
-package com.capgemini.molveno.restaurant;
+package com.capgemini.molveno.restaurant.Reservation;
 
 import com.capgemini.molveno.restaurant.Order.*;
 

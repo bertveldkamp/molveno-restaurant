@@ -1,4 +1,4 @@
-package com.capgemini.molveno.restaurant;
+package com.capgemini.molveno.restaurant.Reservation;
 
 public enum TableType {
     RoundTable(12),

@@ -1,4 +1,4 @@
-package com.capgemini.molveno.restaurant;
+package com.capgemini.molveno.restaurant.Reservation;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -28,6 +28,8 @@ public class ReservationProposal {
     public void setBeginTime(LocalTime beginTime) { this.beginTime = beginTime; this.endTime = beginTime.plusHours(2); }
 
     public void setNumberOfAdults(int numberOfAdults) { this.numberOfAdults = numberOfAdults; }
+
+    public void setNumberOfChildren(int numberOfChildren) { this.numberOfChildren = numberOfChildren; }
 
     public boolean isValidProposal() {
         return validProposal;

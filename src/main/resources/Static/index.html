@@ -1,10 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Page Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+    <title>Supermarket</title>
 </head>
 <body>
+<h1>Reservations</h1>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-">
+
+
+            <!-- Material form subscription -->
+            <div class="card">
+
+                <h5 class="card-header info-color white-text text-center py-4">
+                    <strong>Reservation proposal</strong>
+                </h5>
+
+                <!--Card content-->
+                <div class="card-body px-lg-5">
+
+                    <!-- Form -->
+                    <form class="text-center" style="color: #757575;">
+
+                        <p>Please fill in your information</p>
+
+                        <!-- Adults -->
+                        <div class="md-form mt-3">
+                            <label for="inputAdults">Number of adults</label>
+                            <input type="number" id="inputAdults" class="form-control">
+                        </div>
+
+                        <!-- Children -->
+                        <div class="md-form mt-3">
+                            <label for="inputChildren">Number of children</label>
+                            <input type="number" id="inputChildren" class="form-control">
+                        </div>
+
+                        <!-- Date -->
+                        <div class="md-form">
+                            <label for="inputDate">Date</label>
+                            <input type="date" id="inputDate" class="form-control">
+                        </div>
+
+                        <!-- Time -->
+                        <div class="md-form mt-3">
+                            <label for="inputTime">Time</label>
+                            <input type="time" id="inputTime" class="form-control">
+                        </div>
+
+                        <!-- Check available -->
+                        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" id= "button" type="submit">Check availability</button>
+
+                    </form>
+                    <!-- Form -->
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-">
+
+            <!-- Material form subscription -->
+
+            <div class="container-fluid">
+                <h2>Reservations</h2>
+                <div id="products" class="container">
+                    <table id="table_id" class="display">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Load libraries -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <script type="text/javascript" src="js/Reservation.js"></script>
+                <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

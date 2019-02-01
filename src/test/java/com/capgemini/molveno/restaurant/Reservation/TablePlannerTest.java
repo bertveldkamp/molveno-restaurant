@@ -1,19 +1,16 @@
-package com.capgemini.molveno.restaurant;
+/*
+package com.capgemini.molveno.restaurant.Reservation;
 
-import com.capgemini.molveno.restaurant.ReservationProposal;
-import com.capgemini.molveno.restaurant.TablePlanner;
+
+import com.capgemini.molveno.restaurant.Reservation.ReservationProposal;
+import com.capgemini.molveno.restaurant.Reservation.Table;
+import com.capgemini.molveno.restaurant.Reservation.TablePlanner;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 
-import java.time.LocalDateTime;
-
-import static org.junit.Assert.*;
-
-
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class TablePlannerTest {
@@ -69,3 +66,4 @@ public class TablePlannerTest {
 
 
 }
+ */
