@@ -6,6 +6,7 @@ addConsumable(consumableJSON);
 
 function formToJSON()
 {
+    alert($("#name").val())
     var jsonObject = {};
     if($("#name").val() != "")
     {
@@ -47,8 +48,6 @@ function formToJSON()
 
 
 function addConsumable(consumableJSON){
-
-
 //else if Drink?
 //else if Bottle?
 
@@ -59,4 +58,5 @@ $.ajax({
     data: JSON.stringify(consumableJSON),
     dataType:'json'
     })
+loadMenu();
 }
