@@ -59,7 +59,7 @@ public class OverviewController {
     }
 
     @GetMapping("/order")
-    public List<OrderLine> getorder()
+    public List<OrderLine> getOrder()
     {
         HashMap<Consumable, Integer> complexOrderMap = order.getOverviewMap();
         List<OrderLine> simpleOrderList = new ArrayList<>();
