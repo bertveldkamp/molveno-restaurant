@@ -21,7 +21,7 @@ public class MenuController {
     {
         menu = new Menu("menu");
 
-        menu.add(new Drink("Cola",200,4,"Soft Drinks"));
+        menu.add(new Drink("Cola",200,"  ",4,"Soft Drinks"));
         Dish tomatoSoup = new Dish("Tomato Soup","Tomato soup from Italy",20,"Starter");
         tomatoSoup.addIngredient(new MetaIngredient(4, MetaIngredient.UnitOfMeasurement.KILOGRAM,new Ingredient("Tomato","ACME Italy")));
         tomatoSoup.addIngredient(new MetaIngredient(10, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Bassilicum","ACME Italy")));

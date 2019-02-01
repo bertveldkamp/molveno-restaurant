@@ -1,7 +1,7 @@
 function addIngredientField()
 {
     var numberOfIngredients = $("#metaIngredients > div").length + 1;
-    var fields = "<div>";
+    var fields = "<div class=form-group>";
     fields += '<input id="ingredientQuantity'+numberOfIngredients+'" type="number" min="0" placeholder="0" size="3">';
     fields += '<select id="ingredientUnit'+numberOfIngredients+'">';
     fields += '<option value="GRAM"> Gram </option>';
