@@ -129,9 +129,10 @@ public class OverviewTest {
         HashMap<Consumable, Integer> orderHashMap = testOrder.getOverviewMap();
         Assert.assertTrue(hashMapContainsConsumable(orderHashMap, testItem1));
 
-        overview.mergeOrders(testOrder);
-        Assert.assertTrue(hashMapContainsConsumable(overviewHashMap, testItem1));
-        Assert.assertEquals(2, (long)overviewHashMap.get(testItem1));
+        overview.confirmOrder(testOrder);
+        Assert.assertFalse(hashMapContainsConsumable(overviewHashMap, testItem1));
+        Assert.assertTrue(hashMapContainsConsumable(orderHashMap, testItem1));
+        Assert.assertEquals(2, (long)orderHashMap.get(testItem1));
     }
 
     @Test
@@ -147,11 +148,12 @@ public class OverviewTest {
         HashMap<Consumable, Integer> orderHashMap = testOrder.getOverviewMap();
         Assert.assertTrue(hashMapContainsConsumable(orderHashMap, testItem2));
 
-        overview.mergeOrders(testOrder);
-        Assert.assertTrue(hashMapContainsConsumable(overviewHashMap, testItem1));
-        Assert.assertEquals(1, (long)overviewHashMap.get(testItem1));
-        Assert.assertTrue(hashMapContainsConsumable(overviewHashMap, testItem2));
-        Assert.assertEquals(1, (long)overviewHashMap.get(testItem2));
+        overview.confirmOrder(testOrder);
+        Assert.assertFalse(hashMapContainsConsumable(overviewHashMap, testItem1));
+        Assert.assertTrue(hashMapContainsConsumable(orderHashMap, testItem1));
+        Assert.assertEquals(1, (long)orderHashMap.get(testItem1));
+        Assert.assertTrue(hashMapContainsConsumable(orderHashMap, testItem2));
+        Assert.assertEquals(1, (long)orderHashMap.get(testItem2));
     }
 
     @Test
