@@ -12,25 +12,12 @@ public class Submenu {
         this.name = name;
     }
 
-
-    public void show() {
-
-    }
     public boolean add(Consumable item) {
-        consumableList.add(item);
-        return true;
-
+        return consumableList.add(item);
     }
 
     public boolean remove(Consumable item)
     {
-        if (consumableList.contains(item))
-        {
-            consumableList.remove(item);
-            return true;
-        }
-        else {
-            return false;
-        }
+       return consumableList.remove(item);
     }
 }

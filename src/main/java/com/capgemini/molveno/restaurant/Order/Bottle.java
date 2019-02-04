@@ -8,7 +8,7 @@ public class Bottle extends Drink {
 
     public Bottle(Drink drink,int bottleVolumeInMilliliters, double bottlePrice)
     {
-        super(drink.getName(),bottleVolumeInMilliliters,bottlePrice);
+        super(drink.getName(),bottleVolumeInMilliliters,bottlePrice,drink.getCourse());
         this.drink = drink;
     }
 

@@ -24,6 +24,14 @@ public class Ingredient {
                 this.supplier.equals(that.supplier);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getSupplier() {
+        return supplier;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(name, supplier);

@@ -1,0 +1,50 @@
+<head>
+    <title>Molveno Lake Resort</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/addDish.js"></script>
+    <script type="text/javascript" src="js/removeDish.js"></script>
+    <script type="text/javascript" src="js/ingredientsDynamicInput.js"></script>
+</head>
+
+<body>
+<div class="col-auto mx-auto" style="max-width:800px">
+    <form class="text-center border border-light p-5" onsubmit="javascript: addDish()">
+        <p class="h4 mb-4">Create a new Dish</p>
+        <input type="text" id="name" class="form-control mb-4" placeholder="Name your dish">
+        <div class="form-group">
+            <textarea class="form-control rounded-0" id="description" rows="2" placeholder="Enter a description for your dish!"></textarea>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">CNY</span>
+                </div>
+                <input type="number" min="0.00" step="0.05" id="price" class="form-control" placeholder="Enter the price of your dish!">
+            </div>
+        </div>
+        <select id="course" class="form-control mb-4">
+            <option value="Starter">Starter</option>
+            <option value="Main Course">Main Course</option>
+            <option value="Dessert">Dessert</option>
+            <option value="Side Dish">Side Dish</option>
+            <option value="Soft Drinks">Soft Drinks</option>
+        </select>
+        <div class="input-group multiple-input-group" id="metaIngredients">
+            <input id="ingredientQuantity1" class="form-control mb-4" type="number" value="150" min="0" placeholder="0" size="3">
+            <select id="ingredientUnit1" class="form-control mb-4">
+                <option value="GRAM"> Gram </option>
+                <option value="KILOGRAM"> KiloGram </option>
+                <option value="AMOUNT"> pieces of </option>
+            </select>
+            <input id="ingredientName1" class="form-control mb-4" type="text" value="kaas" placeholder="Ingredient name">
+            <input id="ingredientSupplier1" class="form-control mb-4" placeholder="Ingredient supplier" value="ACME Benelux" type="text">
+        </div>
+        <!--<button onclick="javascript: addIngredientField()"> add another ingredient </button>-->
+        <button type="submit" class="btn btn-primary btn-lg">Add your dish to the menu!</button>
+    </form>
+</div>
+</body>
