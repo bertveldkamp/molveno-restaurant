@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  $("#navbar").load("navbar.html");
   showOverview();
 })
 function showOverview()

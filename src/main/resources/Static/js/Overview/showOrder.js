@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    $("#navbar").load("navbar.html");
     showOrder();
     $("#confirmOrder").click(function(){
       $.ajax
