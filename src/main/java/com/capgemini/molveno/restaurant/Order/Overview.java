@@ -58,7 +58,7 @@ public class Overview {
         this.price += amount * item.getPrice();
     }
 
-    public boolean mergeOrders(Overview order) throws NullPointerException{
+    private boolean mergeOrders(Overview order) throws NullPointerException{
         order.getOverviewMap().forEach(this::addToOrder);
         this.price += order.getPrice();
         return true;
