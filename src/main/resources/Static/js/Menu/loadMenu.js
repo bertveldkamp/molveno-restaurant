@@ -27,7 +27,7 @@ $.each(data, function(index,value)
         main_courses += "<div class='col'>" + value.name + "</div><div class='col'>" + value.price + "</div></div>";
         main_courses += "<div class='row'>" + value.description + "</div>";
     }
-    if(value.course == "Desserts")
+    if(value.course == "Dessert")
     {
         desserts += "<div class='row'>";
         desserts += "<div class='col'>" + value.name + "</div><div class='col'>" + value.price + "</div></div>";
