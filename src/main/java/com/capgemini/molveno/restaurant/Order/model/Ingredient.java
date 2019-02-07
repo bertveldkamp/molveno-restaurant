@@ -1,8 +1,17 @@
-package com.capgemini.molveno.restaurant.Order;
+package com.capgemini.molveno.restaurant.Order.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Objects;
 
+@Entity
 public class Ingredient {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long ingredientID;
+
     private final String name;
     private String supplier;
 

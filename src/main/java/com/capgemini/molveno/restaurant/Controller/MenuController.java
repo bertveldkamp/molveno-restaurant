@@ -1,12 +1,9 @@
 package com.capgemini.molveno.restaurant.Controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.capgemini.molveno.restaurant.Order.model.*;
 import org.springframework.web.bind.annotation.*;
-import com.capgemini.molveno.restaurant.Order.*;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -29,11 +26,11 @@ public class MenuController {
 
     }
 
-    @PostMapping("/addDish")
-    public void addDish(@RequestBody Dish dish)
-    {
-        menu.add(dish);
-    }
+//    @PostMapping("/addDish")
+//    public void addDish(@RequestBody Dish dish)
+//    {
+//        menu.add(dish);
+//    }
 
     @PostMapping("/removeConsumable")
     public void removeConsumable(@RequestBody String dish)

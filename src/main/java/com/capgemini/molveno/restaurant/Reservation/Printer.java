@@ -1,6 +1,8 @@
 package com.capgemini.molveno.restaurant.Reservation;
 
-import com.capgemini.molveno.restaurant.Order.*;
+import com.capgemini.molveno.restaurant.Order.model.Consumable;
+import com.capgemini.molveno.restaurant.Order.model.Dish;
+import com.capgemini.molveno.restaurant.Order.model.Drink;
 
 import java.util.HashMap;
 
@@ -17,7 +19,7 @@ public class Printer {
         return this.printer;
     }
 
-    public static void sendtoPrinter(HashMap<Consumable, Integer> orderMap,int tableID)
+    public static void sendtoPrinter(HashMap<Consumable, Integer> orderMap, int tableID)
     {
         orderMap.forEach((consumable, amount) -> {
             if(consumable instanceof Drink)
