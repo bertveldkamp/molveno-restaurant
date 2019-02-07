@@ -1,6 +1,9 @@
 package com.capgemini.molveno.restaurant.Order;
 
+import javax.persistence.Entity;
 import java.util.Objects;
+
+@Entity
 
 public class Drink extends Consumable {
     private int volumeInMilliLiters;

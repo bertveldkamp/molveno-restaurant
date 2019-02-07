@@ -35,6 +35,12 @@ public class MenuController {
         menu.add(dish);
     }
 
+    @PostMapping("/addDrink")
+    public void addDrink(@RequestBody Drink drink)
+    {
+        menu.add(drink);
+    }
+
     @PostMapping("/removeConsumable")
     public void removeConsumable(@RequestBody String dish)
     {
@@ -48,6 +54,7 @@ public class MenuController {
     }
 
     //TODO addDrink, addBottle
+
 
 
     @GetMapping("/menu")

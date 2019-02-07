@@ -27,20 +27,21 @@ function formToJSON()
             {
                 jsonObject["course"] = $("#course").val();
             }
-          if($("#bottleCheckBox").val() != "")
-            {
-                        jsonObject["bottleCheckBox"] = $("#bottleCheckBox").val();
-            }
+//          if($("#bottleCheckBox").val() != "")
+//            {
+//                        jsonObject["bottleCheckBox"] = $("#bottleCheckBox").val();
+//            }
         return jsonObject;
 }
 
-
+function addConsumable(consumableJSON){
 $.ajax
     ({
         type: "POST",
         url: "/api/menu/addDrink",
         contentType: 'application/json',
         data: JSON.stringify(consumableJSON),
-        dataType:'json'
+//        dataType:'json'
     })
-loadMenu();
+}
+
