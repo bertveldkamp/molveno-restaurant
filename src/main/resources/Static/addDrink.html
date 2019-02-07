@@ -1,0 +1,43 @@
+<head>
+    <title>Molveno Lake Resort</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!-- TODO wanneer addDrink.js bestaat -->
+    <!--<script type="text/javascript" src="js/menu/addDrink.js"></script>-->
+    <script type="text/javascript" src="js/navbar.js"></script>
+</head>
+
+<body>
+<div id="navbar"></div>
+<div class="col-auto mx-auto" style="max-width:800px">
+    <form class="text-center border border-light p-5" onsubmit="javascript: addDrink()">
+        <p class="h4 mb-4">Create a new Drink</p>
+        <input type="text" id="name" class="form-control mb-4" placeholder="Name your drink">
+        <input type="text" id="volumeInMilliLiters" class="form-control mb-4" placeholder="Amount in mililiters">
+        <div class="form-group">
+            <textarea class="form-control rounded-0" id="description" rows="2" placeholder="Enter a description"></textarea>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">CNY</span>
+                </div>
+                <input type="number" min="0.00" step="0.05" id="price" class="form-control" placeholder="Enter the price">
+            </div>
+        </div>
+        <select id="course" class="form-control mb-4">
+            <option value="Soft Drinks">Soft Drinks</option>
+            <option value="Spirit">Spirit</option>
+        </select>
+        <div>
+            <input type="checkbox" id="bottleCheckBox" name="bottleCheckBox" >
+            <label for="bottleCheckBox">Bottle</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Add drink!</button>
+    </form>
+</div>
+</body>
