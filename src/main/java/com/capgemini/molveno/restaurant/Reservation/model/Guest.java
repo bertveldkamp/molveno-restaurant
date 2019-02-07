@@ -1,8 +1,16 @@
-package com.capgemini.molveno.restaurant.Reservation;
+package com.capgemini.molveno.restaurant.Reservation.model;
 
-import javax.naming.Name;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Guest {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     private boolean hotelGuest;
     private String roomNumber;
@@ -51,12 +59,7 @@ public class Guest {
         this.telephoneNumber = telephoneNumber;
     }
 
-    @Override
-    public String toString (){
-        return "Guest name: " + name;
-    }
-
-
+    public long getId() { return id; }
 }
 
 

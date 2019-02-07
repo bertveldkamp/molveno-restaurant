@@ -11,7 +11,7 @@
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
-    <title>Supermarket</title>
+    <title>Restaurant</title>
 </head>
 <body>
 <h1>Reservations</h1>
@@ -32,7 +32,7 @@
                 <div class="card-body px-lg-5">
 
                     <!-- Form -->
-                    <form class="text-center" style="color: #757575;">
+                    <!--<form class="text-center" style="color: #757575;">-->
 
                         <p>Please fill in your information</p>
 
@@ -61,9 +61,15 @@
                         </div>
 
                         <!-- Check available -->
-                        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" id= "button" type="submit">Check availability</button>
+                        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" id= "button">Check availability</button>
 
-                    </form>
+                        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" id= "round_table">Create round tables</button>
+
+                        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" id= "table_button">Retrieve all tables</button>
+
+
+
+                    <!--</form>-->
                     <!-- Form -->
 
                 </div>
@@ -77,8 +83,7 @@
 
             <div class="container-fluid">
                 <h2>Reservations</h2>
-                <div id="products" class="container">
-                    <table id="table_id" class="display">
+                    <table id="table_Tablex" class="display">
                         <thead>
                         <tr>
                             <th>ID</th>
@@ -93,7 +98,6 @@
                         </tr>
                         </tbody>
                     </table>
-                </div>
 
                 <!-- Load libraries -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

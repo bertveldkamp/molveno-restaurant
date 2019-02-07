@@ -1,33 +1,35 @@
-package com.capgemini.molveno.restaurant.Reservation;
+package com.capgemini.molveno.restaurant.Reservation.control;
 
+import com.capgemini.molveno.restaurant.Reservation.InvalidProposalException;
+import com.capgemini.molveno.restaurant.Reservation.ReservationProposal;
+import com.capgemini.molveno.restaurant.Reservation.model.Guest;
+import com.capgemini.molveno.restaurant.Reservation.model.Reservation;
+import com.capgemini.molveno.restaurant.Reservation.model.Tablex;
+import com.capgemini.molveno.restaurant.Reservation.model.TableType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
-//Singleton Tableplanner
+@Service
+@Transactional
 public class TablePlanner {
 
-    private static final TablePlanner tablePlanner = new TablePlanner();
+    @Autowired
+    private TableRepository tableRepository;
 
-    private final List<Table> tableList;
-    private final List<Reservation> reservationList;
+    @Autowired
+    private ReservationRepository reservationRepository;
 
-    private TablePlanner(){
-        this.tableList = new ArrayList<>();
-        this.reservationList = new ArrayList<>();
-    }
-
-    /**
-     * Singleton pattern
-     */
-    public static TablePlanner getInstance(){
-        return tablePlanner;
-    }
+    private  List<Tablex> tablexList;
+    private  List<Reservation> reservationList;
 
 
-    public boolean checkAvailable(ReservationProposal reservationProposal) throws InvalidProposalException{
+
+    public boolean checkAvailable(ReservationProposal reservationProposal) throws InvalidProposalException {
 
         if (!reservationProposal.checkValidity())
         {
@@ -48,20 +50,20 @@ public class TablePlanner {
 
         //tafel toewijzen
         int numberOfPeople = reservationProposal.getNumberOfPeople();
-        Table reservedTable;
+        Tablex reservedTablex;
         if (intIsBetween(numberOfPeople,1,4)) {
-            reservedTable = firstMatchingTable(availableTables(reservationProposal), TableType.SquareTable);
-            Reservation reservation = new Reservation(reservationProposal, guest, reservedTable);
+            reservedTablex = firstMatchingTable(availableTables(reservationProposal), TableType.SquareTable);
+            Reservation reservation = new Reservation(reservationProposal, guest, reservedTablex);
         }
         if (intIsBetween(numberOfPeople,8,12)){
-            reservedTable = firstMatchingTable(availableTables(reservationProposal), TableType.RoundTable);
-            Reservation reservation = new Reservation(reservationProposal, guest, reservedTable);
+            reservedTablex = firstMatchingTable(availableTables(reservationProposal), TableType.RoundTable);
+            Reservation reservation = new Reservation(reservationProposal, guest, reservedTablex);
         }
 
     }
 
-    List<Table> availableTables(ReservationProposal reservationProposal){
-        List<Table> availableTables = tableList;
+    List<Tablex> availableTables(ReservationProposal reservationProposal){
+        List<Tablex> availableTablexes = tablexList;
         LocalDateTime proposalBeginTime = reservationProposal.getBeginTime();
         LocalDateTime proposalEndTime = reservationProposal.getEndTime();
 
@@ -73,16 +75,16 @@ public class TablePlanner {
 
 
             if (dateIsBetween(proposalBeginTime, begin, end) || dateIsBetween(proposalEndTime, begin, end)){
-                availableTables.remove(reservation.getTable());
+                availableTablexes.remove(reservation.getTableId());
             }
         }
-        return availableTables;
+        return availableTablexes;
     }
 
-    Table firstMatchingTable(List<Table> tableList, TableType tableType){
-        for (Table table: tableList) {
-            if (table.type == tableType){
-                return table;
+    Tablex firstMatchingTable(List<Tablex> tablexList, TableType tableType){
+        for (Tablex tablex : tablexList) {
+            if (tablex.getType() == tableType){
+                return tablex;
             }
         }
         return null;
@@ -91,15 +93,15 @@ public class TablePlanner {
     int availableSeats(ReservationProposal reservationProposal){
         int seats = 0;
 
-        for (Table table: availableTables(reservationProposal)) {
-            seats = seats + table.type.getValue();
+        for (Tablex tablex : availableTables(reservationProposal)) {
+            seats = seats + tablex.getType().getValue();
         }
         return seats;
     }
 
 
-    public void addToTableList(Table table){
-        tableList.add(table);
+    public void addToTableList(Tablex tablex){
+        tablexList.add(tablex);
     }
 
     public void addToReservationList(Reservation reservation){

@@ -3,8 +3,8 @@ package com.capgemini.molveno.restaurant.Reservation;
 
 
 import com.capgemini.molveno.restaurant.Reservation.ReservationProposal;
-import com.capgemini.molveno.restaurant.Reservation.Table;
-import com.capgemini.molveno.restaurant.Reservation.TablePlanner;
+import com.capgemini.molveno.restaurant.Reservation.model.Tablex;
+import com.capgemini.molveno.restaurant.Reservation.control.TablePlanner;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -49,7 +49,7 @@ public class TablePlannerTest {
         reservationProposal.setNumberOfAdults(8);
         reservationProposal.setNumberOfChildren(7);
         int availalbleSeats = 12;
-        table = new Table(4);
+        table = new Tablex(4);
 
 
         //when
