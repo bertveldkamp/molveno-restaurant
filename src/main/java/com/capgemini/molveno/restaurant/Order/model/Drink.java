@@ -1,4 +1,4 @@
-package com.capgemini.molveno.restaurant.Order;
+package com.capgemini.molveno.restaurant.Order.model;
 
 import javax.persistence.Entity;
 import java.util.Objects;

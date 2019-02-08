@@ -1,4 +1,4 @@
-package com.capgemini.molveno.restaurant.Order;
+package com.capgemini.molveno.restaurant.Order.model;
 
 public class ConsumableNotFoundException extends RuntimeException {
     private final String consumable;

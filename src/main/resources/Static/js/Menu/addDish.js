@@ -26,7 +26,6 @@ function formToJSON()
     var metaIngredients = $("#metaIngredients > div");
     if(metaIngredients.length > 0)
     {
-        alert("doethet");
         var metaIngredientList = []
         metaIngredients.each(
         function()
@@ -60,7 +59,8 @@ function formToJSON()
 //        }
 //        jsonObject["ingredientList"] = metaIngredientList;
 //    }
-
+    console.log(jsonObject);
+    alert("");
     return jsonObject;
 }
 
@@ -71,18 +71,10 @@ function addConsumable(consumableJSON){
 
 $.ajax({
     type: "POST",
-    url: "/api/menu/addDish",
+    url: "/api/dish/add",
     contentType: 'application/json',
     data: JSON.stringify(consumableJSON),
     dataType:'json'
     })
 loadMenu();
-}
-
-function iterateMetaIngredients()
-{
-alert("Iterating divs");
-    $("#metaIngredients > .form-control").each(function(){
-		alert($(this).val());
-    });
 }

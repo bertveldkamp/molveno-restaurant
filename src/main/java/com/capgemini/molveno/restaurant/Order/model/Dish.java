@@ -1,11 +1,18 @@
-package com.capgemini.molveno.restaurant.Order;
+package com.capgemini.molveno.restaurant.Order.model;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Dish extends  Consumable {
-    private List<MetaIngredient> ingredientList;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private long dishID;
+
+    @OneToMany
+    private List<MetaIngredient> ingredientList = new ArrayList<>();
 
     public Dish()
     {

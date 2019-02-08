@@ -1,5 +1,8 @@
 package com.capgemini.molveno.restaurant.Order;
 
+import com.capgemini.molveno.restaurant.Order.model.Dish;
+import com.capgemini.molveno.restaurant.Order.model.Ingredient;
+import com.capgemini.molveno.restaurant.Order.model.MetaIngredient;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,7 +1,9 @@
-package com.capgemini.molveno.restaurant.Order;
+package com.capgemini.molveno.restaurant.Order.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
 public class MetaIngredient {
     public enum UnitOfMeasurement{
         GRAM,
@@ -9,8 +11,14 @@ public class MetaIngredient {
         AMOUNT,
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long metaIngredientID;
+
     private int quantity;
+    @Enumerated(EnumType.STRING)
     private UnitOfMeasurement unit;
+    @ManyToOne
     private Ingredient ingredient;
 
     public MetaIngredient(int quantity, UnitOfMeasurement unit,Ingredient ingredient) {

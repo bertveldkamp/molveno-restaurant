@@ -1,13 +1,12 @@
 package com.capgemini.molveno.restaurant.Controller;
 
-import com.capgemini.molveno.restaurant.Order.*;
+import com.capgemini.molveno.restaurant.Order.model.*;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/overview")

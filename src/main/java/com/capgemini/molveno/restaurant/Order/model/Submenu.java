@@ -1,4 +1,4 @@
-package com.capgemini.molveno.restaurant.Order;
+package com.capgemini.molveno.restaurant.Order.model;
 
 import java.util.ArrayList;
 import java.util.List;

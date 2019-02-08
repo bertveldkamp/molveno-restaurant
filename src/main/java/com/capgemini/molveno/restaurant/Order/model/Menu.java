@@ -1,12 +1,20 @@
-package com.capgemini.molveno.restaurant.Order;
+package com.capgemini.molveno.restaurant.Order.model;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Menu {
-    private String name;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long menuID;
+
+    @OneToMany
     private List<Consumable> consumableList;
 
+    private String name;
     public Menu(String name) {
         consumableList = new ArrayList<Consumable>();
         this.name = name;
@@ -50,5 +58,29 @@ public class Menu {
             }
         }
         throw new ConsumableNotFoundException(consumableName,this.name);
+    }
+
+    public long getMenuID() {
+        return menuID;
+    }
+
+    public void setMenuID(long menuID) {
+        this.menuID = menuID;
+    }
+
+    public List<Consumable> getConsumableList() {
+        return consumableList;
+    }
+
+    public void setConsumableList(List<Consumable> consumableList) {
+        this.consumableList = consumableList;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

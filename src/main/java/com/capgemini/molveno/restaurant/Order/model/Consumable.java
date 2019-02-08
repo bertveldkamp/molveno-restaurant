@@ -1,4 +1,4 @@
-package com.capgemini.molveno.restaurant.Order;
+package com.capgemini.molveno.restaurant.Order.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +9,9 @@ import java.util.Objects;
 @Entity
 public class Consumable {
     @Id
-    @GeneratedValue ( strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long consumableID;
+
     private double price;
     private String name;
     private String description;
@@ -98,5 +99,13 @@ public class Consumable {
 
     public void setCourse(String course) {
         this.course = course;
+    }
+
+    public long getConsumableID() {
+        return consumableID;
+    }
+
+    public void setConsumableID(long consumableID) {
+        this.consumableID = consumableID;
     }
 }
