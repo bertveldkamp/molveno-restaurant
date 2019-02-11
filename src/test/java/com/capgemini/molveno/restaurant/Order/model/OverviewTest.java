@@ -1,5 +1,9 @@
-package com.capgemini.molveno.restaurant.Order;
+package com.capgemini.molveno.restaurant.Order.model;
 
+import com.capgemini.molveno.restaurant.Order.model.Consumable;
+import com.capgemini.molveno.restaurant.Order.model.Dish;
+import com.capgemini.molveno.restaurant.Order.model.Drink;
+import com.capgemini.molveno.restaurant.Order.model.Overview;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
