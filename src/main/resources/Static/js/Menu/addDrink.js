@@ -1,7 +1,8 @@
+
 function addDrink()
 {
-var consumableJSON = formToJSON();
-addConsumable(consumableJSON);
+var drinkJSON = formToJSON();
+addNewDrink(drinkJSON);
 }
 
 function formToJSON()
@@ -34,13 +35,13 @@ function formToJSON()
         return jsonObject;
 }
 
-function addConsumable(consumableJSON){
+function addNewDrink(drinkJSON){
 $.ajax
     ({
         type: "POST",
-        url: "/api/menu/addDrink",
+        url: "/api/drink",
         contentType: 'application/json',
-        data: JSON.stringify(consumableJSON),
+        data: JSON.stringify(drinkJSON),
 //        dataType:'json'
     })
 }
