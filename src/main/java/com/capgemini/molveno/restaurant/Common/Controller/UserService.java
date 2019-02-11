@@ -66,22 +66,11 @@ public class UserService {
     //Init user is for adding all the users on the database to simpleSecurityController when application restarts
     public void initUsers() {
         System.out.println("<----- User Initialization Started ----->");
-        try {
-            getUserByUsername("dev");
-            for (User u : getAllUsers()) {
-                securityController.add(u.getUsername(), u.getPassword(), u.getRole());
-            }
-        }
-        catch (UserNotFoundException e){
 
-            String username = "Admin";
-            String password = "";
-            String role = "Admin";
-            User u = addUser(new User(username, password, role));
-            if(! isUserExists(u.getUsername())) {
-                securityController.add(u.getUsername(), u.getPassword(), u.getRole());
-            }
+        for (User u : getAllUsers()) {
+            securityController.add(u.getUsername(), u.getPassword(), u.getRole());
         }
+
         System.out.println("<----- User Initialization Finished ----->");
     }
 

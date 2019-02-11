@@ -27,7 +27,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
         final Properties users = new Properties();
-        users.put("exampleUser", encoder().encode("pass") + ",ROLE_ADMIN,enabled"); //adding for default admin account
+        users.put("Admin", encoder().encode("1") + ",ROLE_ADMIN,enabled");
+        users.put("Chef", encoder().encode("1") + ",ROLE_CHEF,enabled");
+        users.put("Bar", encoder().encode("1") + ",ROLE_BAR,enabled");
+        users.put("Host", encoder().encode("1") + ",ROLE_HOST,enabled");
+        //adding for default admin account
         return new InMemoryUserDetailsManager(users);
     }
 
