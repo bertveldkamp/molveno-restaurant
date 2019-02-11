@@ -43,9 +43,15 @@ public class DishService {
 //        ingredientRepository.save(ingredient);
 //        metaIngredientRepository.save(metaIngredient);
 //        dishRepository.save(dishtest);
-        
+        List<MetaIngredient> metaIngredientList = dish.getIngredientList();
 
-        return dish;
+        for(MetaIngredient metaIngredient : metaIngredientList)
+        {
+            ingredientRepository.save(metaIngredient.getIngredient());
+            metaIngredientRepository.save(metaIngredient);
+        }
+
+        return dishRepository.save(dish);
     }
 
     public Iterable<Dish> findAll() {

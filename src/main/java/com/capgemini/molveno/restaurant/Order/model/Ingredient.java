@@ -12,8 +12,12 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long ingredientID;
 
-    private final String name;
+    private String name;
     private String supplier;
+
+    private Ingredient()
+    {
+    }
 
     public Ingredient(String name, String supplier) {
         this.name = name;

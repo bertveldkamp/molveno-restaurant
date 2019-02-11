@@ -21,6 +21,9 @@ public class MetaIngredient {
     @ManyToOne
     private Ingredient ingredient;
 
+    private MetaIngredient()
+    {}
+
     public MetaIngredient(int quantity, UnitOfMeasurement unit,Ingredient ingredient) {
         this.quantity = quantity;
         this.unit = unit;
