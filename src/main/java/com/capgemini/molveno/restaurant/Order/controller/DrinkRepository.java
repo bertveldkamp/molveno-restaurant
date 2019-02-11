@@ -1,6 +1,6 @@
-package com.capgemini.molveno.restaurant.Order.PostGetDemo.Controller;
+package com.capgemini.molveno.restaurant.Order.controller;
 
-import com.capgemini.molveno.restaurant.Order.PostGetDemo.Model.Drink;
+import com.capgemini.molveno.restaurant.Order.model.Drink;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 

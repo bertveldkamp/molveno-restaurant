@@ -1,18 +1,17 @@
 package com.capgemini.molveno.restaurant.Order.model;
 
-import com.capgemini.molveno.restaurant.Order.model.Drink;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class DrinkTest {
+public class DrinkOldTest {
 
     @Test
     public void equalstest() {
-        Drink coke = new Drink("Cola",200,400);
-        Drink coke2 = new Drink("Cola",200,400);
-        Drink coke3 = new Drink("Coka",200,400);
-        Drink coke4 = new Drink("Cola",300,400);
-        Drink coke5 = new Drink("Cola",200,500);
+        Drink_old coke = new Drink_old("Cola",200,400);
+        Drink_old coke2 = new Drink_old("Cola",200,400);
+        Drink_old coke3 = new Drink_old("Coka",200,400);
+        Drink_old coke4 = new Drink_old("Cola",300,400);
+        Drink_old coke5 = new Drink_old("Cola",200,500);
 
         Assert.assertTrue(coke.equals(coke2));
         Assert.assertTrue(coke2.equals(coke));
@@ -23,8 +22,8 @@ public class DrinkTest {
 
     @Test
     public void hashCodetest() {
-        Drink coke = new Drink("Cola",200,400);
-        Drink coke2 = new Drink("Cola",200,400);
+        Drink_old coke = new Drink_old("Cola",200,400);
+        Drink_old coke2 = new Drink_old("Cola",200,400);
 
         Assert.assertEquals(coke.hashCode(),coke2.hashCode());
     }

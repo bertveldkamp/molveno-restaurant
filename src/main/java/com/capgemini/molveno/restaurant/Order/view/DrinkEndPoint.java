@@ -1,7 +1,7 @@
-package com.capgemini.molveno.restaurant.Order.PostGetDemo.Api;
+package com.capgemini.molveno.restaurant.Order.view;
 
-import com.capgemini.molveno.restaurant.Order.PostGetDemo.Controller.DrinkService;
-import com.capgemini.molveno.restaurant.Order.PostGetDemo.Model.Drink;
+import com.capgemini.molveno.restaurant.Order.controller.DrinkService;
+import com.capgemini.molveno.restaurant.Order.model.Drink;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

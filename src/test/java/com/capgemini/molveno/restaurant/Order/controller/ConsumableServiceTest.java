@@ -2,7 +2,7 @@
 //
 //import com.capgemini.molveno.restaurant.Order.model.Consumable;
 //import com.capgemini.molveno.restaurant.Order.model.Dish;
-//import com.capgemini.molveno.restaurant.Order.model.Drink;
+//import com.capgemini.molveno.restaurant.Order.model.Drink_old;
 //import org.junit.Assert;
 //import org.junit.Test;
 //
@@ -17,11 +17,11 @@
 //        ConsumableService consumableService = new ConsumableService();
 //        Consumable consumable = new Consumable("consumableName","consumableDescription",4, "consumableCourse");
 //        Dish dish = new Dish("DishName","DishDescription",9,"DishCourse");
-//        Drink drink = new Drink("DrinkName",420,4.20,"DrinkCourse");
+//        Drink_old drink = new Drink_old("DrinkName",420,4.20,"DrinkCourse");
 //
 //        Consumable savedConsumable = consumableService.save(consumable);
 //        Dish savedDish = (Dish) consumableService.save(dish);
-//        Drink savedDrink = (Drink) consumableService.save(drink);
+//        Drink_old savedDrink = (Drink_old) consumableService.save(drink);
 //
 //        Assert.assertEquals(consumable,savedConsumable);
 //        Assert.assertEquals(dish,savedDish);

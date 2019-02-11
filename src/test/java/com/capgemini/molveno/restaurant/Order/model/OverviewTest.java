@@ -1,9 +1,5 @@
 package com.capgemini.molveno.restaurant.Order.model;
 
-import com.capgemini.molveno.restaurant.Order.model.Consumable;
-import com.capgemini.molveno.restaurant.Order.model.Dish;
-import com.capgemini.molveno.restaurant.Order.model.Drink;
-import com.capgemini.molveno.restaurant.Order.model.Overview;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,14 +17,14 @@ public class OverviewTest {
 
     @Test
     public void addNoItemToEmptyMap(){
-        Drink testItem1 = new Drink("Test1", 250, 2.00);
+        Drink_old testItem1 = new Drink_old("Test1", 250, 2.00);
         Map<Consumable, Integer> testHashMap = overview.getOverviewMap();
         Assert.assertFalse(hashMapContainsConsumable(testHashMap, testItem1));
     }
 
     @Test
     public void addItemToEmptyMap(){
-        Drink testItem1 = new Drink("Test1", 250, 2.00);
+        Drink_old testItem1 = new Drink_old("Test1", 250, 2.00);
         overview.addToOrder(testItem1, 1);
         Map<Consumable, Integer> testHashMap = overview.getOverviewMap();
         Assert.assertTrue(hashMapContainsConsumable(testHashMap, testItem1));
@@ -36,7 +32,7 @@ public class OverviewTest {
 
     @Test
     public void addItemToFilledMap(){
-        Drink testItem1 = new Drink("Test1", 250, 2.00);
+        Drink_old testItem1 = new Drink_old("Test1", 250, 2.00);
         Dish testItem2 = new Dish("Test2", "", 2.00);
         overview.addToOrder(testItem1, 1);
         overview.addToOrder(testItem2, 1);
@@ -46,7 +42,7 @@ public class OverviewTest {
 
     @Test
     public void addSameItemTwiceMap(){
-        Drink testItem1 = new Drink("Test1", 250, 2.00);
+        Drink_old testItem1 = new Drink_old("Test1", 250, 2.00);
         overview.addToOrder(testItem1, 1);
         overview.addToOrder(testItem1, 1);
         HashMap<Consumable, Integer> testHashMap = overview.getOverviewMap();
@@ -56,7 +52,7 @@ public class OverviewTest {
 
     @Test
     public void removeItemMap(){
-        Drink testItem1 = new Drink("Test1", 250, 2.00);
+        Drink_old testItem1 = new Drink_old("Test1", 250, 2.00);
         overview.addToOrder(testItem1, 1);
         Assert.assertTrue(overview.removeFromOrder(testItem1));
         Map<Consumable, Integer> testHashMap = overview.getOverviewMap();
@@ -65,7 +61,7 @@ public class OverviewTest {
 
     @Test
     public void removeItemOnce(){
-        Drink testItem1 = new Drink("Test1", 250, 2.00);
+        Drink_old testItem1 = new Drink_old("Test1", 250, 2.00);
         overview.addToOrder(testItem1, 1);
         overview.addToOrder(testItem1, 1);
         Assert.assertTrue(overview.removeFromOrder(testItem1));
@@ -76,7 +72,7 @@ public class OverviewTest {
 
     @Test
     public void removeItemTwice(){
-        Drink testItem1 = new Drink("Test1", 250, 2.00);
+        Drink_old testItem1 = new Drink_old("Test1", 250, 2.00);
         overview.addToOrder(testItem1, 1);
         overview.addToOrder(testItem1, 1);
         HashMap<Consumable, Integer> testHashMap = overview.getOverviewMap();
@@ -89,7 +85,7 @@ public class OverviewTest {
 
     @Test
     public void removeDifferentItem(){
-        Drink testItem1 = new Drink("Test1", 250, 2.00);
+        Drink_old testItem1 = new Drink_old("Test1", 250, 2.00);
         Dish testItem2 = new Dish("Test2", "", 2.00);
         overview.addToOrder(testItem1, 1);
         overview.addToOrder(testItem2, 1);
@@ -104,26 +100,26 @@ public class OverviewTest {
 
     @Test
     public void removeNonExcistingItem(){
-        Drink testItem1 = new Drink("Test1", 250, 2.00);
+        Drink_old testItem1 = new Drink_old("Test1", 250, 2.00);
         HashMap<Consumable, Integer> testHashMap = overview.getOverviewMap();
         Assert.assertFalse(hashMapContainsConsumable(testHashMap, testItem1));
     }
 
     @Test(expected = NullPointerException.class)
     public void addNullThrowNullPointer(){
-        Drink testItem1 = null;
+        Drink_old testItem1 = null;
         overview.addToOrder(testItem1, 1);
     }
 
     @Test
     public void removeNullAndHandleException(){
-        Drink testItem1 = null;
+        Drink_old testItem1 = null;
         Assert.assertFalse(overview.removeFromOrder(testItem1));
     }
 
     @Test
     public void mergeTwoOverviewsWithSameItem(){
-        Drink testItem1 = new Drink("Test1", 250, 2.00);
+        Drink_old testItem1 = new Drink_old("Test1", 250, 2.00);
         overview.addToOrder(testItem1, 1);
         HashMap<Consumable, Integer> overviewHashMap = overview.getOverviewMap();
         Assert.assertTrue(hashMapContainsConsumable(overviewHashMap, testItem1));
@@ -141,7 +137,7 @@ public class OverviewTest {
 
     @Test
     public void mergeTwoOverviewsWithDifferentItem(){
-        Drink testItem1 = new Drink("Test1", 250, 2.00);
+        Drink_old testItem1 = new Drink_old("Test1", 250, 2.00);
         Dish testItem2 = new Dish("Test2", "", 2.00);
         overview.addToOrder(testItem1, 1);
         HashMap<Consumable, Integer> overviewHashMap = overview.getOverviewMap();
@@ -162,7 +158,7 @@ public class OverviewTest {
 
     @Test
     public void calculateTotalPrice() {
-        Drink testItem1 = new Drink("Test1", 250, 2.00);
+        Drink_old testItem1 = new Drink_old("Test1", 250, 2.00);
         Dish testItem2 = new Dish("Test2", "", 2.00);
         overview.addToOrder(testItem1, 1);
         overview.addToOrder(testItem2, 1);

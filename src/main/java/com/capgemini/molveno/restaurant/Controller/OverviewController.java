@@ -24,16 +24,16 @@ public class OverviewController {
         order = new Overview();
         totalOverview = new Overview();
 
-        menu.add(new Drink("Cola",200,4,"Soft Drink"));
+        menu.add(new Drink_old("Cola",200,4,"Soft Drink_old"));
         Dish tomatoSoup = new Dish("Tomato Soup","Tomato soup from Italy",20,"Starter");
         tomatoSoup.addIngredient(new MetaIngredient(200, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Tomato","Italy")));
         tomatoSoup.addIngredient(new MetaIngredient(10, MetaIngredient.UnitOfMeasurement.GRAM,new Ingredient("Basil","Italy")));
         menu.add(tomatoSoup);
-        Drink fanta = new Drink("Fanta",333,4,"Soft Drink");
+        Drink_old fanta = new Drink_old("Fanta",333,4,"Soft Drink_old");
         menu.add(fanta);
-        Drink sprite = new Drink("Sprite",333,4,"Soft Drink");
+        Drink_old sprite = new Drink_old("Sprite",333,4,"Soft Drink_old");
         menu.add(sprite);
-        Drink vermentino = new Drink("Vermentino", 200,"Vermentino from Sardegna, Italy", 6, "Spirit");
+        Drink_old vermentino = new Drink_old("Vermentino", 200,"Vermentino from Sardegna, Italy", 6, "Spirit");
         Bottle vermentinoBottle = new Bottle(vermentino, 1000, 30);
         Dish salmon = new Dish("Salmon Fillet", "Pan seared salmon fillet.", 30, "Main Course");
         salmon.addIngredient(new MetaIngredient(200, MetaIngredient.UnitOfMeasurement.GRAM, new Ingredient("Salmon", "Italy")));

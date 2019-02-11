@@ -2,7 +2,7 @@ package com.capgemini.molveno.restaurant.Reservation;
 
 import com.capgemini.molveno.restaurant.Order.model.Consumable;
 import com.capgemini.molveno.restaurant.Order.model.Dish;
-import com.capgemini.molveno.restaurant.Order.model.Drink;
+import com.capgemini.molveno.restaurant.Order.model.Drink_old;
 
 import java.util.HashMap;
 
@@ -22,7 +22,7 @@ public class Printer {
     public static void sendtoPrinter(HashMap<Consumable, Integer> orderMap, int tableID)
     {
         orderMap.forEach((consumable, amount) -> {
-            if(consumable instanceof Drink)
+            if(consumable instanceof Drink_old)
             {
                 System.out.printf("Order for the bar - %i %s \n",amount, consumable.getName());
             } else if(consumable instanceof Dish) {

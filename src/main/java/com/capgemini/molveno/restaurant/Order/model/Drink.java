@@ -1,61 +1,79 @@
 package com.capgemini.molveno.restaurant.Order.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Objects;
 
+
 @Entity
+public class Drink{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    long Id;
+    String name;
+    int volumeInMilliLiters;
+    String description;
+    double price;
+    String course;
 
-public class Drink extends Consumable {
-    private int volumeInMilliLiters;
+//    // Niet nodig???????????????????
+//    public Drink_old(String name, int volumeInMilliLiters, String description,  double price, String course)
+//    {
+//        this.name = name;
+//        this.volumeInMilliLiters = volumeInMilliLiters;
+//        this.description = description;
+//        this.price = price;
+//        this.course = course;
+//    }
 
-    //Needed for Spring MVC
-    private Drink()
-    {
-        super();
+    public long getId() {
+        return Id;
     }
 
-    public Drink(String name, int volumeInMilliLiters, double price, String course)
-    {
-        super(name,"",price, course);
-        this.volumeInMilliLiters = volumeInMilliLiters;
-    }
-    public Drink(String name, int volumeInMilliLiters, double price)
-    {
-        super(name,"",price, "");
-        this.volumeInMilliLiters = volumeInMilliLiters;
-    }
-
-    public Drink(String name, int volumeInMilliLiters, String description, double price, String course)
-    {
-        super(name,description,price, course );
-        this.volumeInMilliLiters = volumeInMilliLiters;
-    }
-
-    public Drink(String name, int volumeInMilliLiters, String description, double price)
-    {
-        super(name,description,price, "" );
-        this.volumeInMilliLiters = volumeInMilliLiters;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Drink drink = (Drink) o;
-        return volumeInMilliLiters == drink.volumeInMilliLiters && ((drink.getName().equals(this.getName())) && (drink.getDescription().equals(this.getDescription()) && drink.getPrice() == this.getPrice()));
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), volumeInMilliLiters);
+    public String getName() {
+        return name;
     }
 
     public int getVolumeInMilliLiters() {
         return volumeInMilliLiters;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+
+    public void setId(long id) {
+        Id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void setVolumeInMilliLiters(int volumeInMilliLiters) {
         this.volumeInMilliLiters = volumeInMilliLiters;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
     }
 }
