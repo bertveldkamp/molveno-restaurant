@@ -1,4 +1,4 @@
-package com.capgemini.molveno.restaurant.Order;
+package com.capgemini.molveno.restaurant.Order.model;
 
 import com.capgemini.molveno.restaurant.Order.model.Consumable;
 import com.capgemini.molveno.restaurant.Order.model.Dish;

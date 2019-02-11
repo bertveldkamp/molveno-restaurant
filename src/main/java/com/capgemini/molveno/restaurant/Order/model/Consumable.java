@@ -8,7 +8,6 @@ import java.util.Objects;
 
 @Entity
 public class Consumable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long consumableID;

@@ -1,11 +1,9 @@
-package com.capgemini.molveno.restaurant.Order;
+package com.capgemini.molveno.restaurant.Order.model;
 
 import com.capgemini.molveno.restaurant.Order.model.Ingredient;
 import com.capgemini.molveno.restaurant.Order.model.MetaIngredient;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class MetaIngredientTest {
 
