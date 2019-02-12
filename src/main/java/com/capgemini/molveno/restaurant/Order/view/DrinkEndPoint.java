@@ -1,6 +1,7 @@
 package com.capgemini.molveno.restaurant.Order.view;
 
 import com.capgemini.molveno.restaurant.Order.controller.DrinkService;
+import com.capgemini.molveno.restaurant.Order.model.Dish;
 import com.capgemini.molveno.restaurant.Order.model.Drink;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,10 +20,9 @@ public class DrinkEndPoint {
     private DrinkService drinkService;
 
     @GetMapping
-    @Produces(value = MediaType.APPLICATION_JSON)
-    public Response stuurGet() {
+    public Iterable<Drink> stuurGet() {
         Iterable<Drink> drinks = drinkService.toonAlleDrinks();
-        return javax.ws.rs.core.Response.ok(drinks).build();
+        return drinks;
     }
 
     @PostMapping
