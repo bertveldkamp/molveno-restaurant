@@ -18,6 +18,14 @@ public class Guest {
     private String email;
     private String telephoneNumber;
 
+    public Guest(){}
+
+    public Guest(String name, String telephoneNumber, String email){
+        this.name = name;
+        this.telephoneNumber = telephoneNumber;
+        this.email = email;
+    }
+
 
     public boolean isHotelGuest() {
         return hotelGuest;

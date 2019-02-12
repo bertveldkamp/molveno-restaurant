@@ -15,7 +15,6 @@ public class ReservationProposal {
 
     public boolean checkValidity(){
         if(numberOfAdults < 1 || beginTime.atDate(date).isBefore(LocalDateTime.now())){
-            System.out.println("Date is in the past");
             this.validProposal = false;
         } else {
             this.validProposal = true;

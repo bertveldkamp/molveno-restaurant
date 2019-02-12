@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,10 +24,6 @@ public class TablePlanner {
 
     @Autowired
     private ReservationRepository reservationRepository;
-
-    private  List<Tablex> tablexList;
-    private  List<Reservation> reservationList;
-
 
 
     public boolean checkAvailable(ReservationProposal reservationProposal) throws InvalidProposalException {
@@ -43,32 +40,38 @@ public class TablePlanner {
 
     }
 
-    public void processReservation(ReservationProposal reservationProposal, Guest guest) throws InvalidProposalException{
+    public Reservation processReservation(ReservationProposal reservationProposal, Guest guest) throws InvalidProposalException{
         Assert.isTrue(checkAvailable(reservationProposal), "komt al niet door de checkAvailable");
         //Stukje voor Guest input checken
-        //TODO
+        //
 
         //tafel toewijzen
         int numberOfPeople = reservationProposal.getNumberOfPeople();
-        Tablex reservedTablex;
+        Reservation reservation = null;
+        List<Tablex> reservedTablex = new ArrayList<Tablex>();
         if (intIsBetween(numberOfPeople,1,4)) {
-            reservedTablex = firstMatchingTable(availableTables(reservationProposal), TableType.SquareTable);
-            Reservation reservation = new Reservation(reservationProposal, guest, reservedTablex);
+            reservedTablex.add(firstMatchingTable(availableTables(reservationProposal), TableType.SquareTable));
+            reservation = new Reservation(reservationProposal, guest, reservedTablex);
         }
-        if (intIsBetween(numberOfPeople,8,12)){
-            reservedTablex = firstMatchingTable(availableTables(reservationProposal), TableType.RoundTable);
-            Reservation reservation = new Reservation(reservationProposal, guest, reservedTablex);
+        if (intIsBetween(numberOfPeople, 5, 8)) {
+            reservedTablex.add(firstMatchingTable(availableTables(reservationProposal), TableType.SquareTable));
+            reservedTablex.add(firstMatchingTable(availableTables(reservationProposal), TableType.SquareTable));
+            reservation = new Reservation(reservationProposal, guest, reservedTablex);
         }
-
+        if (intIsBetween(numberOfPeople,9,12)){
+            reservedTablex.add(firstMatchingTable(availableTables(reservationProposal), TableType.RoundTable));
+            reservation = new Reservation(reservationProposal, guest, reservedTablex);
+        }
+        return reservation;
     }
 
     List<Tablex> availableTables(ReservationProposal reservationProposal){
-        List<Tablex> availableTablexes = tablexList;
+        List<Tablex> availableTablexes = tableRepository.findAll();
         LocalDateTime proposalBeginTime = reservationProposal.getBeginTime();
         LocalDateTime proposalEndTime = reservationProposal.getEndTime();
 
         //Loop fills available table List
-        for (Reservation reservation: reservationList) {
+        for (Reservation reservation: reservationRepository.findAll()) {
 
             LocalDateTime end = reservation.getEndDateTime();
             LocalDateTime begin = reservation.getBeginDateTime();
@@ -97,15 +100,6 @@ public class TablePlanner {
             seats = seats + tablex.getType().getValue();
         }
         return seats;
-    }
-
-
-    public void addToTableList(Tablex tablex){
-        tablexList.add(tablex);
-    }
-
-    public void addToReservationList(Reservation reservation){
-        reservationList.add(reservation);
     }
 
     public boolean intIsBetween(int x, int lower, int upper){

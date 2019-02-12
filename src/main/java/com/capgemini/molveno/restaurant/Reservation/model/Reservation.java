@@ -4,6 +4,8 @@ import com.capgemini.molveno.restaurant.Reservation.ReservationProposal;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Reservation {
@@ -13,7 +15,7 @@ public class Reservation {
     private long id;
 
 
-    @OneToOne
+    @ManyToOne
     private Guest guest;
     private LocalDateTime beginDateTime;
     private LocalDateTime endDateTime;
@@ -22,22 +24,22 @@ public class Reservation {
     private boolean groupComplete = false;
     private int reservationNumber;
 
-    @OneToOne
-    @JoinColumn()
-    private Tablex tablex;
+    @ManyToMany
+    private List<Tablex> tablex = new ArrayList<Tablex>();
 
+    public Reservation(){}
 
-    public Reservation(ReservationProposal reservationProposal, Guest guest, Tablex tablex){
+    public Reservation(ReservationProposal reservationProposal, Guest guest, List<Tablex> tablex){
         this.beginDateTime = reservationProposal.getBeginTime();
         this.endDateTime = this.beginDateTime.plusHours(2);
         this.nrOfPeople = reservationProposal.getNumberOfPeople();
         this.nrOfChildren = reservationProposal.getNumberOfChildren();
-        this.reservationNumber = 1234;
+        this.reservationNumber = (int)(Math.random()*10000);
         this.guest = guest;
         this.tablex = tablex;
     }
 
-    public Tablex getTableId() {
+    public List<Tablex> getTableId() {
         return tablex;
     }
 
@@ -60,6 +62,8 @@ public class Reservation {
     public boolean isGroupComplete() { return groupComplete; }
 
     public int getReservationNumber() { return reservationNumber; }
+
+
 }
 
 

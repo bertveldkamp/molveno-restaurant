@@ -16,7 +16,6 @@ public class Tablex {
     public Tablex(){}
 
     public Tablex(TableType type) {
-        this.id = id;
         this.numberOfSeats = type.getValue();
         this.type = type;
     }

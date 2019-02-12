@@ -63,8 +63,6 @@
                         <!-- Check available -->
                         <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" id= "button">Check availability</button>
 
-                        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" id= "round_table">Create round tables</button>
-
                         <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" id= "table_button">Retrieve all tables</button>
 
 
@@ -76,19 +74,72 @@
 
             </div>
         </div>
+        <div class="col">
+            <div class="card">
+
+                <h5 class="card-header info-color white-text text-center py-4">
+                    <strong>Personal information</strong>
+                </h5>
+
+                <!--Card content-->
+                <div class="card-body px-lg-5">
+
+                    <!-- Form -->
+                    <!--<form class="text-center" style="color: #757575;">-->
+
+                    <p>Please fill in your information</p>
+
+                    <!-- LastName -->
+                    <div class="md-form mt-3">
+                        <label for="inputLastName">Last name</label>
+                        <input type="text" id="inputLastName" class="form-control">
+                    </div>
+
+                    <!-- FirstName -->
+                    <div class="md-form mt-3">
+                        <label for="inputFirstName">First name</label>
+                        <input type="text" id="inputFirstName" class="form-control">
+                    </div>
+
+                    <!-- Telephone number -->
+                    <div class="md-form mt-3">
+                        <label for="inputPhone">Telephone number</label>
+                        <input type="text" id="inputPhone" class="form-control">
+                    </div>
+
+                    <!-- Email -->
+                    <div class="md-form">
+                        <label for="inputEmail">E-mail</label>
+                        <input type="text" id="inputEmail" class="form-control">
+                    </div>
+
+                    <!-- Hotel Guest -->
+                    <div class="md-form mt-3">
+                        <label for="inputHotelguest">I have also booked a room in the Hotel</label>
+                        <input type="checkbox" id="inputHotelguest" class="form-control">
+                    </div>
+
+                    <!-- Confirm reservation -->
+                    <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" id= "ConfirmButton">Confirm Reservation</button>
+                    <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" id= "ReservationsButton">Show Reservations</button>
+
+                </div>
+
+            </div>
+        </div>
 
         <div class="col-">
 
             <!-- Material form subscription -->
-
+            <br>
             <div class="container-fluid">
-                <h2>Reservations</h2>
+                <h5 class="card-header info-color white-text text-center py-4"><strong>Tables</strong></h5>
                     <table id="table_Tablex" class="display">
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
+                            <th>Number of seats</th>
+                            <th>Type</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -98,17 +149,42 @@
                         </tr>
                         </tbody>
                     </table>
+                <br>
+                <h5 class="card-header info-color white-text text-center py-4"><strong>Reservations</strong></h5>
+                <table id="table_Reservations" class="display">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date and time</th>
+                        <th>Table number</th>
+                        <th>Total number of people</th>
+                        <th>Children</th>
+                        <!--<th>Guest name</th>-->
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
 
-                <!-- Load libraries -->
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                <script type="text/javascript" src="js/Reservation.js"></script>
-                <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
             </div>
         </div>
     </div>
+    <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" id= "round_table">Create round table</button>
+    <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" id= "square_table">Create square table</button>
+
 </div>
+<!-- Load libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/Reservation.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+
 </body>
 </html>
