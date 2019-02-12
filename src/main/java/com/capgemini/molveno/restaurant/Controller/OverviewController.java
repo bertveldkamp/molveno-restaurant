@@ -57,9 +57,9 @@ public class OverviewController {
     }
 
     @PostMapping("/addToOrder")
-    public void addToOrder(@RequestParam String consumableName, @RequestParam int amount)
+    public void addToOrder(@RequestBody Consumable consumable)
     {
-       order.addToOrder(menu.getConsumable(consumableName),amount);
+       order.addToOrder(consumable,1);
     }
 
     @PostMapping("/removeFromOrder")

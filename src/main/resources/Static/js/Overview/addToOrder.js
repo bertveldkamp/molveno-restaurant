@@ -1,12 +1,18 @@
-//$(document).ready(function({
-//    $.ajax({
-//        type: "POST",
-//        url: "/addToOrder/",
-//           data: JSON.stringify({
-//           name: "Cola",
-//           amount: 4,
-//           }),
-//           contentType: 'application/json'
-//           }
-//       })
-//   }))
+function addToOrder(consumableID)
+{
+$.ajax({
+type:"GET",
+url:"/api/dish/dish?consumableID="+consumableID,
+success:function(data)
+{
+    $.ajax({
+        type: "POST",
+        url: "/api/overview/addToOrder",
+           data: JSON.stringify(data),
+           contentType: 'application/json'
+           }
+       )
+   }
+   }
+   )
+}

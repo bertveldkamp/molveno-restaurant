@@ -60,7 +60,6 @@ function formToJSON()
 //        jsonObject["ingredientList"] = metaIngredientList;
 //    }
     console.log(jsonObject);
-    alert("");
     return jsonObject;
 }
 

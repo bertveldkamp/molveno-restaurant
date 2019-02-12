@@ -17,7 +17,7 @@ $.each(data, function(index,value)
          {
          //    alert("JAJAJA");
              soft_drinks += "<div class='row'>";
-             soft_drinks += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>" + value.price + "</div></div>";
+             soft_drinks += "<div class='col'>" + value.name + "</div><div class='col'>" + value.price + "</div></div>";
              soft_drinks += "<div class='row'>" + value.description + "</div>";
           //   alert("JAJAJA");
          }
@@ -25,7 +25,7 @@ $.each(data, function(index,value)
          {
          //    alert("JAJAJA");
              spirits += "<div class='row'>";
-             spirits += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>" + value.price + "</div></div>";
+             spirits += "<div class='col'>" + value.name + "</div><div class='col'>" + value.price + "</div></div>";
              spirits += "<div class='row'>" + value.description + "</div>";
           //   alert("JAJAJA");
          }

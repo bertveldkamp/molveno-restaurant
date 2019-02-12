@@ -1,3 +1,6 @@
+<button onclick='javascript: addToOrder("+value.consumableID+")'>+</button>
+
+
 $(document).ready(loadDishMenu());
 
 function loadDishMenu()
@@ -16,7 +19,7 @@ success:function(data)
        if(value.course == "Starter")
         {
             starters += "<div class='row'>";
-            starters += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>&yen;" + value.price + "</div></div>";
+            starters += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>&yen;" + value.price + "</div><button onclick=javascript: addToOrder("+value.consumableID+")>+</button></div>";
             starters += "<div class='row'><div class='col'><p class='text-center font-italic'>" + value.description + "</p></div></div>";
         }
         else if(value.course == "Main Course")

@@ -32,4 +32,10 @@ public class DishEndpoint {
         dishService.save(dish);
     }
 
+    @GetMapping("/dish")
+    public Dish findDishByID(@RequestParam long consumableID)
+    {
+        return dishService.findByID(consumableID);
+    }
+
 }
