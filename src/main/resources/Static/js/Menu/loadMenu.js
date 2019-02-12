@@ -72,15 +72,15 @@ function loadDishMenu()
           {
               soft_drinks += "<div class='row'>";
               soft_drinks += "<div class='col'>" + value.name + "</div><div class='col'>&yen" + value.price + "</div></div>";
-              soft_drinks += "<div class='row'><div class='col'><p class='text-left font-italic'>" + value.description + "</p></div></div>";
-              soft_drinks += "<div class='row'><div class='col'><p class='text-left font-italic'>" + "Volume in milliliters: " + value.volumeInMilliLiters + "</p></div></div>";
+              soft_drinks += "<div class='row'><div class='col text-left font-italic'> " + value.description + "</div></div>";
+              soft_drinks += "<div class='row'><div <p class='col text-left font-italic'>" + "Volume in milliliters: " + value.volumeInMilliLiters + "</p></div></div>";
           }
       if(value.course == "Spirit")
           {
               spirits += "<div class='row'>";
               spirits += "<div class='col'>" + value.name + "</div><div class='col'>&yen" + value.price + "</div></div>";
-              spirits += "<div class='row'><div class='col'><p class='text-left font-italic'>" + value.description + "</p></div></div>";
-              spirits += "<div class='row'><div class='col'><p class='text-left font-italic'>" + "Volume in milliliters: " + value.volumeInMilliLiters + "</p></div></div>";
+              spirits += "<div class='row'><div class='col text-left font-italic'> " + value.description + "</div></div>";
+              spirits += "<div class='row'><div <p class='col text-left font-italic'>" + "Volume in milliliters: " + value.volumeInMilliLiters + "</p></div></div>";
           }
 
  })
