@@ -18,25 +18,26 @@ function loadDishMenu()
          {
              starters += "<div class='row'>";
              starters += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>&yen;" + value.price + "</div></div>";
-             starters += "<div class='row'><div class='col'><p class='text-center font-italic'>" + value.description + "</p></div></div>";
+             starters += "<div class='row'><div class='col'><p class='text-left font-italic'>" + value.description + "</p></div></div>";
          }
          else if(value.course == "Main Course")
          {
              main_courses += "<div class='row'>";
              main_courses += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>&yen;" + value.price + "</div></div>";
-             main_courses += "<div class='row'>" + value.description + "</div>";
+             main_courses += "<div class='row'><div class='col'><p class='text-left font-italic'>" + value.description + "</p></div></div>";
+
          }
          else if(value.course == "Dessert")
          {
              desserts += "<div class='row'>";
              desserts += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>&yen;" + value.price + "</div></div>";
-             desserts += "<div class='row'>" + value.description + "</div>";
+             desserts += "<div class='row'><div class='col'><p class='text-left font-italic'>" + value.description + "</p></div></div>";
          }
          else if(value.course == "Side Dish")
          {
              side_dish += "<div class='row'>";
              side_dish += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>&yen;" + value.price + "</div></div>";
-             side_dish += "<div class='row'>" + value.description + "</div>";
+             side_dish += "<div class='row'><div class='col'><p class='text-left font-italic'>" + value.description + "</p></div></div>";
          }
 
      }
@@ -70,14 +71,16 @@ function loadDishMenu()
       if(value.course == "Soft Drinks")
           {
               soft_drinks += "<div class='row'>";
-              soft_drinks += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>" + value.price + "</div></div>";
-              soft_drinks += "<div class='row'>" + value.description + "</div>";
+              soft_drinks += "<div class='col'>" + value.name + "</div><div class='col'>&yen" + value.price + "</div></div>";
+              soft_drinks += "<div class='row'><div class='col'><p class='text-left font-italic'>" + value.description + "</p></div></div>";
+              soft_drinks += "<div class='row'><div class='col'><p class='text-left font-italic'>" + "Volume in milliliters: " + value.volumeInMilliLiters + "</p></div></div>";
           }
       if(value.course == "Spirit")
           {
               spirits += "<div class='row'>";
-              spirits += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>" + value.price + "</div></div>";
-              spirits += "<div class='row'>" + value.description + "</div>";
+              spirits += "<div class='col'>" + value.name + "</div><div class='col'>&yen" + value.price + "</div></div>";
+              spirits += "<div class='row'><div class='col'><p class='text-left font-italic'>" + value.description + "</p></div></div>";
+              spirits += "<div class='row'><div class='col'><p class='text-left font-italic'>" + "Volume in milliliters: " + value.volumeInMilliLiters + "</p></div></div>";
           }
 
  })
