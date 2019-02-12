@@ -17,26 +17,26 @@ function loadDishMenu()
         if(value.course == "Starter")
          {
              starters += "<div class='row'>";
-             starters += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>&yen;" + value.price + "</div></div>";
+             starters += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>&yen;" + value.price + "</div><button onclick='javascript: addToOrder("+value.consumableID+")'>+</button></div>";
              starters += "<div class='row'><div class='col'><p class='text-left font-italic'>" + value.description + "</p></div></div>";
          }
          else if(value.course == "Main Course")
          {
              main_courses += "<div class='row'>";
-             main_courses += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>&yen;" + value.price + "</div></div>";
+             main_courses += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>&yen;" + value.price + "</div><button onclick='javascript: addToOrder("+value.consumableID+")'>+</button></div>";
              main_courses += "<div class='row'><div class='col'><p class='text-left font-italic'>" + value.description + "</p></div></div>";
 
          }
          else if(value.course == "Dessert")
          {
              desserts += "<div class='row'>";
-             desserts += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>&yen;" + value.price + "</div></div>";
+             desserts += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>&yen;" + value.price + "</div><button onclick='javascript: addToOrder("+value.consumableID+")'>+</button></div>";
              desserts += "<div class='row'><div class='col'><p class='text-left font-italic'>" + value.description + "</p></div></div>";
          }
          else if(value.course == "Side Dish")
          {
              side_dish += "<div class='row'>";
-             side_dish += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>&yen;" + value.price + "</div></div>";
+             side_dish += "<div class='col'>" + value.name + "<img src='/public/images/info.png' height='10' width='10'></div><div class='col'>&yen;" + value.price + "</div><button onclick='javascript: addToOrder("+value.consumableID+")'>+</button></div>";
              side_dish += "<div class='row'><div class='col'><p class='text-left font-italic'>" + value.description + "</p></div></div>";
          }
 
