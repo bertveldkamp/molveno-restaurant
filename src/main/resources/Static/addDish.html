@@ -35,17 +35,19 @@
             <option value="Side Dish">Side Dish</option>
             <option value="Soft Drinks">Soft Drinks</option>
         </select>
-        <div class="input-group multiple-input-group" id="metaIngredients">
-            <input id="ingredientQuantity1" class="form-control mb-4" type="number" min="0" placeholder="0" size="3">
-            <select id="ingredientUnit1" class="form-control mb-4">
-                <option value="GRAM"> Gram </option>
-                <option value="KILOGRAM"> KiloGram </option>
-                <option value="AMOUNT"> pieces of </option>
-            </select>
-            <input id="ingredientName1" class="form-control mb-4" type="text" placeholder="Ingredient name">
-            <input id="ingredientSupplier1" class="form-control mb-4" placeholder="Ingredient supplier" type="text">
-            <span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+
+        <div id="metaIngredients">
+            <div class="input-group multiple-input-group">
+                <input class="form-control mb-4" name="quantity" type="number" min="0" placeholder="0" size="3">
+                <select class="form-control mb-4" name="unit">
+                    <option value="GRAM"> Gram </option>
+                    <option value="KILOGRAM"> KiloGram </option>
+                    <option value="AMOUNT"> pieces of </option>
+                </select>
+                <input class="form-control mb-4" type="text" name="name" placeholder="Ingredient name">
+                <input class="form-control mb-4" placeholder="Ingredient supplier" name="supplier" type="text">
+                <span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+
 						</button></span>
+            </div>
         </div>
         <!--<button onclick="javascript: addIngredientField()"> add another ingredient </button>-->
         <button type="submit" class="btn btn-primary btn-lg">Add your dish to the menu!</button>

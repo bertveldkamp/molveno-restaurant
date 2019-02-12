@@ -6,7 +6,6 @@ addConsumable(consumableJSON);
 
 function formToJSON()
 {
-    alert($("#name").val())
     var jsonObject = {};
     if($("#name").val() != "")
     {
@@ -24,25 +23,44 @@ function formToJSON()
     {
         jsonObject["course"] = $("#course").val();
     }
-
-    if($("#ingredientQuantity1").val() > 0)
+    var metaIngredients = $("#metaIngredients > div");
+    if(metaIngredients.length > 0)
     {
-        metaIngredientList = []
-        var numberOfIngredients = $("#metaIngredients > div").length + 1;
-        for (i = 1; i <= numberOfIngredients; i++)
+        var metaIngredientList = []
+        metaIngredients.each(
+        function()
         {
             metaIngredientList.push({
-                "quantity": $("#ingredientQuantity"+numberOfIngredients).val(),
-                "unit": $("#ingredientUnit"+numberOfIngredients).val(),
+                "quantity":$(this).children("[name='quantity']").val(),
+                "unit":$(this).children("[name='unit']").val(),
                 "ingredient":{
-                    "name":$("#ingredientName"+numberOfIngredients).val(),
-                    "supplier":$("#ingredientSupplier"+numberOfIngredients).val()
-                    }
-                })
+                    "name":$(this).children("[name='name']").val(),
+                    "supplier":$(this).children("[name='supplier']").val(),
+                }
+            });
         }
+        )
         jsonObject["ingredientList"] = metaIngredientList;
     }
-    $("#hierkandejson").text(JSON.stringify(jsonObject));
+//    if($("#ingredientQuantity1").val() > 0)
+//    {
+//        metaIngredientList = []
+//        var numberOfIngredients = $("#metaIngredients > div").length + 1;
+//        for (i = 1; i <= numberOfIngredients; i++)
+//        {
+//            metaIngredientList.push({
+//                "quantity": $("#ingredientQuantity"+numberOfIngredients).val(),
+//                "unit": $("#ingredientUnit"+numberOfIngredients).val(),
+//                "ingredient":{
+//                    "name":$("#ingredientName"+numberOfIngredients).val(),
+//                    "supplier":$("#ingredientSupplier"+numberOfIngredients).val()
+//                    }
+//                })
+//        }
+//        jsonObject["ingredientList"] = metaIngredientList;
+//    }
+    console.log(jsonObject);
+    alert("");
     return jsonObject;
 }
 
@@ -53,7 +71,7 @@ function addConsumable(consumableJSON){
 
 $.ajax({
     type: "POST",
-    url: "/api/menu/addDish",
+    url: "/api/dish/add",
     contentType: 'application/json',
     data: JSON.stringify(consumableJSON),
     dataType:'json'
